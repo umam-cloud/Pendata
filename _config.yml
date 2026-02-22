@@ -9,6 +9,16 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  
+parse:
+  myst_enable_extensions:
+    - colon_fence
+
+sphinx:
+  config:
+    nb_execution_show_tb: false
+    nb_remove_code_source: false
+    nb_remove_code_outputs: false
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -30,3 +40,6 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+execute:
+  hide_input: true

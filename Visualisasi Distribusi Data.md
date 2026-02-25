@@ -41,3 +41,13 @@ fig-margin : 0
 ---
 Visualisasi Distribusi Data Bentuk BoxPlot
 ```
+
+## ScaterPlot
+
+```{figure} /img/ScaterPlot.png
+---
+width: 70%
+align : center
+fig-margin : 0
+---
+Visualisasi Distribusi Data Bentuk BoxPlot

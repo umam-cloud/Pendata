@@ -362,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -378,6 +380,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-dataset">Deskripsi Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">Deteksi Outlier</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -597,6 +608,61 @@ document.write(`
 </div></div></div>
 </div>
 <p>Berikut ini adalah data iris flower yang di ambil dari Kaggle, data yang ditampilkan hanya beberapa dari semua data</p>
+<section id="deskripsi-dataset">
+<h2>Deskripsi Dataset<a class="headerlink" href="#deskripsi-dataset" title="Link to this heading">#</a></h2>
+<p>Dataset IRIS memiliki lima atribut sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No</p></th>
+<th class="head"><p>Atribut</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>sepal length</p></td>
+<td><p>Numerik (cm)</p></td>
+<td><p>Panjang kelopak bunga</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>sepal width</p></td>
+<td><p>Numerik (cm)</p></td>
+<td><p>Lebar kelopak bunga</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>petal length</p></td>
+<td><p>Numerik (cm)</p></td>
+<td><p>Panjang mahkota bunga</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>petal width</p></td>
+<td><p>Numerik (cm)</p></td>
+<td><p>Lebar mahkota bunga</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>species</p></td>
+<td><p>Kategorikal</p></td>
+<td><p>Jenis bunga iris</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dataset terdiri dari tiga kelas:</p>
+<ul class="simple">
+<li><p>Iris-setosa</p></li>
+<li><p>Iris-versicolor</p></li>
+<li><p>Iris-virginica</p></li>
+</ul>
+<p>Masing-masing kelas berjumlah 50 data sehingga dataset bersifat seimbang (balanced dataset).</p>
+</section>
+<section id="deteksi-outlier">
+<h2>Deteksi Outlier<a class="headerlink" href="#deteksi-outlier" title="Link to this heading">#</a></h2>
+<p>Deteksi outlier dilakukan menggunakan widget Outliers pada Orange Data Mining. Berdasarkan hasil analisis, teridentifikasi 15 data yang dikategorikan sebagai outlier oleh model.</p>
+<p>Namun, perlu diperhatikan bahwa metode yang digunakan bersifat berbasis model (misalnya One-Class SVM atau Isolation Forest), sehingga data yang dianggap outlier merupakan data yang memiliki pola berbeda dari mayoritas distribusi global, bukan karena kesalahan pencatatan.</p>
+<p>Dataset IRIS secara umum tidak memiliki outlier ekstrem berdasarkan analisis statistik klasik (misalnya metode IQR). Oleh karena itu, data yang terdeteksi lebih merepresentasikan perbedaan karakteristik antar kelas daripada anomali data.</p>
+<p><img alt="alt text" src="_images/outliers.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -653,6 +719,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-dataset">Deskripsi Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">Deteksi Outlier</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

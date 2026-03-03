@@ -14,3 +14,8 @@ chapters:
           - file: Data Iris
           - file: Analisis Statistik Deskriptif
           - file: Visualisasi Distribusi Data
+  
+  - file : Data Distance
+    sections:
+      - file: Data Student
+      - file: Distance Student Data

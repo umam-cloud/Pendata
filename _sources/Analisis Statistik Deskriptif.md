@@ -15,15 +15,17 @@ kernelspec:
 # Analisis Statistik Deskriptif
 metode untuk meringkas, mengatur, dan menyajikan data mentah agar menjadi informasi yang mudah dipahami, biasanya melalui nilai rata-rata (mean), median, modus, standar deviasi, maksimum, dan minimum
 
+Berikut ringkasan statistik deskriptif dataset IRIS:
+
+| Atribut        | Min  | Max  | Mean | Std Dev |
+|---------------|------|------|------|--------|
+| Sepal Length  | 4.3  | 7.9  | 5.84 | 0.83   |
+| Sepal Width   | 2.0  | 4.4  | 3.05 | 0.43   |
+| Petal Length  | 1.0  | 6.9  | 3.76 | 1.76   |
+| Petal Width   | 0.1  | 2.5  | 1.20 | 0.76   | 
+
 ## Visualisasi Orange
 ```{figure} /img/Analisis_Statistik_Deskriptif.png
----
-width: 100%
-fig-margin : 0
----
-```
-
-```{figure} /img/Analisis_Statistik_Deskriptif2.png
 ---
 width: 100%
 fig-margin : 0

@@ -24,7 +24,9 @@ import pandas as pd
 df = pd.read_csv("data/IRIS.csv")
 df.head(20)
 ```
+```{note}
 Berikut ini adalah data iris flower yang di ambil dari Kaggle, data yang ditampilkan hanya beberapa dari semua data
+```
 
 ## Deskripsi Dataset
 

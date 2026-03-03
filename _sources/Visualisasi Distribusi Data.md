@@ -43,6 +43,7 @@ Visualisasi Distribusi Data Bentuk BoxPlot
 ```
 
 ## ScaterPlot
+visualisasi data dua dimensi yang menggunakan titik-titik untuk memetakan hubungan, tren, atau korelasi antara dua variabel numerik (X dan Y). Alat ini krusial dalam pengembangan data untuk mendeteksi pola, klaster, dan outlier, serta mendukung analisis regresi linier dalam manajemen data.
 
 ```{figure} /img/ScaterPlot.png
 ---

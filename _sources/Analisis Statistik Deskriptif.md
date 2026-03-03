@@ -77,3 +77,31 @@ Berdasarkan analisis statistik deskriptif, atribut **sepal_length**
 pada dataset Iris memiliki sebaran data yang relatif stabil.
 Nilai standar deviasi yang tidak terlalu besar menunjukkan bahwa
 data tidak menyebar jauh dari nilai rata-ratanya.
+
+## Missing Value
+
+Missing value (data hilang) dalam pengembangan data merujuk pada kondisi di mana informasi yang seharusnya ada dalam suatu dataset tidak tersedia atau tidak tercatat.
+
+
+#### Cek Missing Value per Kolom
+
+```{code-cell} python
+import pandas as pd
+
+df = pd.read_csv("data/IRIS.csv")
+df.isnull().sum()
+```
+
+#### Cek Total Missing Value
+
+```{code-cell} python
+import pandas as pd
+
+df = pd.read_csv("data/IRIS.csv")
+df.isnull().sum().sum()
+
+if df.isnull().sum().sum() == 0:
+    print("Dataset tidak memiliki missing value.")
+else:
+    print("Dataset memiliki missing value.")
+```

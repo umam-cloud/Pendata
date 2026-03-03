@@ -190,6 +190,17 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Data%20Distance.html">Data Distance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Data%20Student.html">Data Student</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Distance%20Student%20Data.html">Distance in Student Data</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -389,6 +400,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-code">Source Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan-hasil">Keterangan Hasil</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">Missing Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value-per-kolom">Cek Missing Value per Kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-total-missing-value">Cek Total Missing Value</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -400,7 +416,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="analisis-statistik-deskriptif">
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-statistik-deskriptif">
 <h1>Analisis Statistik Deskriptif<a class="headerlink" href="#analisis-statistik-deskriptif" title="Link to this heading">#</a></h1>
 <p>metode untuk meringkas, mengatur, dan menyajikan data mentah agar menjadi informasi yang mudah dipahami, biasanya melalui nilai rata-rata (mean), median, modus, standar deviasi, maksimum, dan minimum</p>
 <p>Berikut ringkasan statistik deskriptif dataset IRIS:</p>
@@ -518,6 +534,56 @@ pada dataset Iris memiliki sebaran data yang relatif stabil.
 Nilai standar deviasi yang tidak terlalu besar menunjukkan bahwa
 data tidak menyebar jauh dari nilai rata-ratanya.</p>
 </section>
+<section id="missing-value">
+<h2>Missing Value<a class="headerlink" href="#missing-value" title="Link to this heading">#</a></h2>
+<p>Missing value (data hilang) dalam pengembangan data merujuk pada kondisi di mana informasi yang seharusnya ada dalam suatu dataset tidak tersedia atau tidak tercatat.</p>
+<section id="cek-missing-value-per-kolom">
+<h3>Cek Missing Value per Kolom<a class="headerlink" href="#cek-missing-value-per-kolom" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/IRIS.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    0
+sepal_width     0
+petal_length    0
+petal_width     0
+species         0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cek-total-missing-value">
+<h3>Cek Total Missing Value<a class="headerlink" href="#cek-total-missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/IRIS.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset tidak memiliki missing value.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset memiliki missing value.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset tidak memiliki missing value.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -588,6 +654,11 @@ data tidak menyebar jauh dari nilai rata-ratanya.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-code">Source Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan-hasil">Keterangan Hasil</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">Missing Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value-per-kolom">Cek Missing Value per Kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-total-missing-value">Cek Total Missing Value</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

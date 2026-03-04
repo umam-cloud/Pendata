@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Distance in Student Data &#8212; My sample book</title>
+    <title>Distance in Iris Data &#8212; My sample book</title>
   
   
   
@@ -59,10 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Distance Student Data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Distance Iris Data';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Distance in Iris Data" href="Distance%20Iris%20Data.html" />
+    <link rel="next" title="Distance in Student Data" href="Distance%20Student%20Data.html" />
+    <link rel="prev" title="Data Student" href="Data%20Student.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,9 +200,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="Distance%20Iris%20Data.html">Distance in Iris Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Distance in Iris Data</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Distance in Student Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Distance%20Student%20Data.html">Distance in Student Data</a></li>
 </ul>
 </details></li>
 </ul>
@@ -275,7 +276,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDistance Student Data.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDistance Iris Data.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +306,7 @@
       
       
       
-      <li><a href="_sources/Distance Student Data.md" target="_blank"
+      <li><a href="_sources/Distance Iris Data.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -389,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Distance in Student Data</h1>
+    <h1>Distance in Iris Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,31 +400,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-rentang-range-numerik"><strong>Tentukan Rentang (Range) Numerik</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Distance in Iris Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-tipe-data-numerik">Mengukur Jarak Tipe Data Numerik</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-euclidean-distance">Implementasi Menggunakan Euclidean Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-matriks-jarak">Pembentukan Matriks Jarak</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-atribut-ordinal"><strong>D. Atribut Ordinal</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-ranking"><strong>Konversi Ranking</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tingkat-kepuasan"><strong>Tingkat_Kepuasan</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motivasi-belajar"><strong>Motivasi_Belajar</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-manhattan-distance">Implementasi Menggunakan Manhattan Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pembentukan Matriks Jarak</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-minkowski-distance">Implementasi Menggunakan Minkowski Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pembentukan Matriks Jarak</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak-metode-campuran-gower"><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-seluruh-jarak"><strong>Total Seluruh Jarak</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nilai-akhir"><strong>Hitung Nilai Akhir</strong></a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi"><strong>Interpretasi</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -434,267 +428,379 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="distance-in-student-data">
-<h1>Distance in Student Data<a class="headerlink" href="#distance-in-student-data" title="Link to this heading">#</a></h1>
-<p><strong>perhitungan manual</strong> menggunakan <strong>2 mahasiswa dari dataset asli (misal diambil dari baris pertama dan kedua dataset)</strong>:</p>
-<ul class="simple">
-<li><p>Numerik → Normalisasi (range)</p></li>
-<li><p>Nominal → Simple Matching</p></li>
-<li><p>Ordinal → Ranking + Normalisasi</p></li>
-<li><p>Binary → Simple Matching</p></li>
-</ul>
-<section id="data-dua-mahasiswa">
-<h2><strong>Data Dua Mahasiswa</strong><a class="headerlink" href="#data-dua-mahasiswa" title="Link to this heading">#</a></h2>
-<p>Misalkan dari dataset diperoleh:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Atribut</p></th>
-<th class="head"><p>Mahasiswa 1</p></th>
-<th class="head"><p>Mahasiswa 2</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Usia</p></td>
-<td><p>18</p></td>
-<td><p>25</p></td>
-</tr>
-<tr class="row-odd"><td><p>Semester</p></td>
-<td><p>5</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="row-even"><td><p>IPK</p></td>
-<td><p>2.22</p></td>
-<td><p>3.72</p></td>
-</tr>
-<tr class="row-odd"><td><p>Jumlah_Organisasi</p></td>
-<td><p>1</p></td>
-<td><p>4</p></td>
-</tr>
-<tr class="row-even"><td><p>Jenis_Kelamin</p></td>
-<td><p>Perempuan</p></td>
-<td><p>Perempuan</p></td>
-</tr>
-<tr class="row-odd"><td><p>Program_Studi</p></td>
-<td><p>Manajemen</p></td>
-<td><p>Sistem Informasi</p></td>
-</tr>
-<tr class="row-even"><td><p>Tingkat_Kepuasan</p></td>
-<td><p>Sedang</p></td>
-<td><p>Rendah</p></td>
-</tr>
-<tr class="row-odd"><td><p>Motivasi_Belajar</p></td>
-<td><p>Rendah</p></td>
-<td><p>Sangat Tinggi</p></td>
-</tr>
-<tr class="row-even"><td><p>Status_Beasiswa</p></td>
-<td><p>Tidak</p></td>
-<td><p>Ya</p></td>
-</tr>
-<tr class="row-odd"><td><p>Status_Kerja</p></td>
-<td><p>Part Time</p></td>
-<td><p>Full Time</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="distance-in-iris-data">
+<h1>Distance in Iris Data<a class="headerlink" href="#distance-in-iris-data" title="Link to this heading">#</a></h1>
 </section>
-<section id="tentukan-rentang-range-numerik">
-<h2><strong>Tentukan Rentang (Range) Numerik</strong><a class="headerlink" href="#tentukan-rentang-range-numerik" title="Link to this heading">#</a></h2>
-<p>Dari dataset:</p>
-<ul class="simple">
-<li><p>Usia: 18 – 25 → Range = 7</p></li>
-<li><p>Semester: 1 – 8 → Range = 7</p></li>
-<li><p>IPK: 2.00 – 3.99 → Range = 1.99</p></li>
-<li><p>Jumlah_Organisasi: 0 – 5 → Range = 5</p></li>
-</ul>
-</section>
-<section id="hitung-jarak-tiap-atribut">
-<h2><strong>Hitung Jarak Tiap Atribut</strong><a class="headerlink" href="#hitung-jarak-tiap-atribut" title="Link to this heading">#</a></h2>
-<section id="a-atribut-numerik-normalisasi">
-<h3><strong>A. Atribut Numerik (Normalisasi)</strong><a class="headerlink" href="#a-atribut-numerik-normalisasi" title="Link to this heading">#</a></h3>
-<ul>
-<li><h5 class="rubric" id="usia"><strong>Usia</strong></h5>
-</li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="mengukur-jarak-tipe-data-numerik">
+<h1>Mengukur Jarak Tipe Data Numerik<a class="headerlink" href="#mengukur-jarak-tipe-data-numerik" title="Link to this heading">#</a></h1>
+<p>Mengukur jarak adalah komponen utama dalam algoritma clustering berbasis jarak. Pada Dataset Iris ini atribut/fitur bertipe data numerik, jadi jarak bisa diukur menggunakan Manhattan Distance, Euclidean Distance, Minkwoski Distance.</p>
+<section id="implementasi-menggunakan-euclidean-distance">
+<h2>Implementasi Menggunakan Euclidean Distance<a class="headerlink" href="#implementasi-menggunakan-euclidean-distance" title="Link to this heading">#</a></h2>
+<p>Euclidean Distance digunakan untuk mengukur jarak tipe data numerik dan paling umum di pakai. Dataset Iris yang akan diukur menggunakan Euclidean Distance ini terdiri dari 150 data bunga, 4 atribut numerik yaitu sepal_length, sepal_width, petal_length, petal_width.</p>
+<p>Setiap atribut direpresentasikan sebagai vektor berdimensi 4:</p>
 <div class="math notranslate nohighlight">
 \[
-|18 - 25| / 7 = 7/7 = 1
+x = (x_1, x_2, x_3, x_4)
 \]</div>
-<ul>
-<li><h5 class="rubric" id="semester"><strong>Semester</strong></h5>
-</li>
-</ul>
+<p>Rumus Euclidean Distance yang digunakan adalah:</p>
 <div class="math notranslate nohighlight">
 \[
-|5 - 3| / 7 = 2/7 = 0.29
+d(x,y) = \sqrt{
+(x_1 - y_1)^2 +
+(x_2 - y_2)^2 +
+(x_3 - y_3)^2 +
+(x_4 - y_4)^2
+}
 \]</div>
-<ul>
-<li><h5 class="rubric" id="ipk"><strong>IPK</strong></h5>
-</li>
-</ul>
+<p>Sebagai ilustrasi, digunakan dua data pertama pada dataset Iris.</p>
+<p>Data ke-1:</p>
 <div class="math notranslate nohighlight">
 \[
-|2.22 - 3.72| / 1.99 = 1.50 / 1.99 = 0.75
+x_1 = (5.1, 3.5, 1.4, 0.2)
 \]</div>
-<ul>
-<li><h5 class="rubric" id="jumlah-organisasi"><strong>Jumlah Organisasi</strong></h5>
-</li>
-</ul>
+<p>Data ke-2:</p>
 <div class="math notranslate nohighlight">
 \[
-|1 - 4| / 5 = 3/5 = 0.60
+x_2 = (4.9, 3.0, 1.4, 0.2)
 \]</div>
-</section>
-<section id="b-atribut-nominal-simple-matching">
-<h3><strong>B. Atribut Nominal (Simple Matching)</strong><a class="headerlink" href="#b-atribut-nominal-simple-matching" title="Link to this heading">#</a></h3>
-<ul>
-<li><h5 class="rubric" id="jenis-kelamin"><strong>Jenis_Kelamin</strong></h5>
-</li>
-</ul>
-<p>Sama → 0</p>
-<ul>
-<li><h5 class="rubric" id="program-studi"><strong>Program_Studi</strong></h5>
-</li>
-</ul>
-<p>Berbeda → 1</p>
-<ul>
-<li><h5 class="rubric" id="status-kerja"><strong>Status_Kerja</strong></h5>
-</li>
-</ul>
-<p>Berbeda → 1</p>
-</section>
-<section id="c-atribut-binary">
-<h3><strong>C. Atribut Binary</strong><a class="headerlink" href="#c-atribut-binary" title="Link to this heading">#</a></h3>
-<section id="status-beasiswa">
-<h4><strong>Status_Beasiswa</strong><a class="headerlink" href="#status-beasiswa" title="Link to this heading">#</a></h4>
-<p>Berbeda (Tidak vs Ya) → 1</p>
-</section>
-</section>
-<section id="d-atribut-ordinal">
-<h3><strong>D. Atribut Ordinal</strong><a class="headerlink" href="#d-atribut-ordinal" title="Link to this heading">#</a></h3>
-<section id="konversi-ranking">
-<h4><strong>Konversi Ranking</strong><a class="headerlink" href="#konversi-ranking" title="Link to this heading">#</a></h4>
-<p>Tingkat_Kepuasan:</p>
-<ul class="simple">
-<li><p>Rendah = 1</p></li>
-<li><p>Sedang = 2</p></li>
-<li><p>Tinggi = 3</p></li>
-</ul>
-<p>Motivasi_Belajar:</p>
-<ul class="simple">
-<li><p>Sangat Rendah = 1</p></li>
-<li><p>Rendah = 2</p></li>
-<li><p>Sedang = 3</p></li>
-<li><p>Tinggi = 4</p></li>
-<li><p>Sangat Tinggi = 5</p></li>
-</ul>
-</section>
-<section id="tingkat-kepuasan">
-<h4><strong>Tingkat_Kepuasan</strong><a class="headerlink" href="#tingkat-kepuasan" title="Link to this heading">#</a></h4>
-<p>Mahasiswa 1 = Sedang (2)<br />
-Mahasiswa 2 = Rendah (1)</p>
-<p>Normalisasi:</p>
+<p>Langkah perhitungan:</p>
 <div class="math notranslate nohighlight">
 \[
-z = \frac{r - 1}{M - 1}
+d(x_1,x_2) =
+\sqrt{
+(5.1 - 4.9)^2 +
+(3.5 - 3.0)^2 +
+(1.4 - 1.4)^2 +
+(0.2 - 0.2)^2
+}
 \]</div>
-<p>Karena M = 3</p>
-<p>Mahasiswa 1:</p>
 <div class="math notranslate nohighlight">
 \[
-(2 - 1)/(3 - 1) = 1/2 = 0.5
+=
+\sqrt{
+(0.2)^2 +
+(0.5)^2 +
+(0)^2 +
+(0)^2
+}
 \]</div>
-<p>Mahasiswa 2:</p>
 <div class="math notranslate nohighlight">
 \[
-(1 - 1)/(3 - 1) = 0/2 = 0
+=
+\sqrt{
+0.04 + 0.25 + 0 + 0
+}
 \]</div>
-<p>Jarak:</p>
 <div class="math notranslate nohighlight">
 \[
-|0.5 - 0| = 0.5
+=
+\sqrt{0.29}
 \]</div>
-</section>
-<section id="motivasi-belajar">
-<h4><strong>Motivasi_Belajar</strong><a class="headerlink" href="#motivasi-belajar" title="Link to this heading">#</a></h4>
-<p>Mahasiswa 1 = Rendah (2)<br />
-Mahasiswa 2 = Sangat Tinggi (5)</p>
-<p>M = 5</p>
-<p>Mahasiswa 1:</p>
-<p>Mahasiswa 1:</p>
 <div class="math notranslate nohighlight">
 \[
-(2 - 1)/4 = 1/4 = 0.25
+\approx 0.538
 \]</div>
-<p>Mahasiswa 2:</p>
+<p>Penjelasan :</p>
+<p>Hasil perhitungan menunjukkan bahwa jarak antara data pertama dan data kedua sekitar 0.538. Nilai ini menunjukkan tingkat kemiripan kedua sampel, yaitu dimana semakin kecil nilai jarak maka semakin tingkat kemiripan tinggi.</p>
+<section id="pembentukan-matriks-jarak">
+<h3>Pembentukan Matriks Jarak<a class="headerlink" href="#pembentukan-matriks-jarak" title="Link to this heading">#</a></h3>
+<p>Setelah menghitung jarak antar pasangan data menggunakan Euclidean Distance, langkah berikutnya adalah menyusun nilai - nilai tersebut ke dalam suatu matriks jarak (distance matrix).</p>
+<p>Secara umum, jika terdapat <span class="math notranslate nohighlight">\(n\)</span> data, maka matriks jarak
+yang terbentuk berukuran:</p>
 <div class="math notranslate nohighlight">
 \[
-(5 - 1)/4 = 4/4 = 1
+n \times n
 \]</div>
-<p>Jarak:</p>
+<p>Karena dataset Iris terdiri dari 150 data, maka
+ukuran matriks jaraknya adalah:</p>
 <div class="math notranslate nohighlight">
 \[
-|0.25 - 1| = 0.75
+150 \times 150
 \]</div>
+<p>Sebagai ilustrasi, misalkan diambil tiga data pertama
+dari dataset Iris:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 = (5.1, 3.5, 1.4, 0.2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_2 = (4.9, 3.0, 1.4, 0.2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_3 = (4.7, 3.2, 1.3, 0.2)
+\]</div>
+<p>Diasumsikan hasil perhitungan jaraknya menggunakan Rumus Euclidean tadi, yaitu :</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_2) = 0.538
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_3) = 0.510
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_2,x_3) = 0.300
+\]</div>
+<p>Maka matriks jarak yang terbentuk adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+D =
+\begin{bmatrix}
+0 &amp; 0.538 &amp; 0.510 \\
+0.538 &amp; 0 &amp; 0.300 \\
+0.510 &amp; 0.300 &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Pada distance matriks terdapat elemen yang memiliki nilai 0, itu karena jarak suatu data terhadap dirinya sendiri adalah 0. Matriks bersifat simestris, yaitu :</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_i,x_j) = d(x_j,x_i)
+\]</div>
+<p>Matriks jarak ini merepresentasikan tingkat kemiripan antar seluruh data.
+Semakin kecil nilai pada matriks, maka semakin mirip kedua data tersebut.
+Berikut implementasi dari orange yang menghasilkan matriks jarak lengkap berukuran <span class="math notranslate nohighlight">\(150 \times 150\)</span>.</p>
+<p><img alt="Foto Saya" src="_images/euclidean.png" /></p>
 </section>
 </section>
-</section>
-<section id="hitung-total-jarak-metode-campuran-gower">
-<h2><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong><a class="headerlink" href="#hitung-total-jarak-metode-campuran-gower" title="Link to this heading">#</a></h2>
-<p>Jumlah atribut yang dihitung = 10</p>
+<section id="implementasi-menggunakan-manhattan-distance">
+<h2>Implementasi Menggunakan Manhattan Distance<a class="headerlink" href="#implementasi-menggunakan-manhattan-distance" title="Link to this heading">#</a></h2>
+<p>Manhattan Distance merupakan metode pengukuran jarak yang menghitung jumlah elisih absolut antar atribut pada dua data.</p>
+<p>Rumus Manhattan Distance :</p>
 <div class="math notranslate nohighlight">
 \[
-D = \frac{\text{Total seluruh jarak}}{10}
+d(x,y) = \sum_{i=1}^{n} |x_i - y_i|
 \]</div>
-<section id="total-seluruh-jarak">
-<h3><strong>Total Seluruh Jarak</strong><a class="headerlink" href="#total-seluruh-jarak" title="Link to this heading">#</a></h3>
+<p>Karena dataset iris memiliki 4 atribut numerik, maka rumusnya diperoleh menjadi :</p>
 <div class="math notranslate nohighlight">
 \[
-1 + 0.29 + 0.75 + 0.60 + 0 + 1 + 1 + 1 + 0.5 + 0.75 = 6.89
+d(x,y) =
+|x_1 - y_1| +
+|x_2 - y_2| +
+|x_3 - y_3| +
+|x_4 - y_4|
 \]</div>
-</section>
-<section id="hitung-nilai-akhir">
-<h3><strong>Hitung Nilai Akhir</strong><a class="headerlink" href="#hitung-nilai-akhir" title="Link to this heading">#</a></h3>
+<p>Contoh implementasi perhitungan Manhattan Distance menggunakan dua data pertama pada dataset iris.</p>
+<p>Data ke-1:</p>
 <div class="math notranslate nohighlight">
 \[
-D = \frac{6.89}{10}
+x_1 = (5.1, 3.5, 1.4, 0.2)
+\]</div>
+<p>Data ke-2:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2 = (4.9, 3.0, 1.4, 0.2)
+\]</div>
+<p>Perhitungan jaraknya :</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_2) =
+|5.1 - 4.9| +
+|3.5 - 3.0| +
+|1.4 - 1.4| +
+|0.2 - 0.2|
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-D = 0.689
+=
+0.2 + 0.5 + 0 + 0
 \]</div>
-</section>
-</section>
-<section id="interpretasi">
-<h2><strong>Interpretasi</strong><a class="headerlink" href="#interpretasi" title="Link to this heading">#</a></h2>
-<p>Nilai dissimilarity:</p>
 <div class="math notranslate nohighlight">
 \[
-D = 0.689
+=
+0.7
 \]</div>
-<p>Karena mendekati 1, maka kedua mahasiswa ini <strong>cukup berbeda</strong>.</p>
-<p>Perbedaan terbesar terdapat pada:</p>
-<ul class="simple">
-<li><p>Usia</p></li>
-<li><p>IPK</p></li>
-<li><p>Motivasi Belajar</p></li>
-<li><p>Program Studi</p></li>
-<li><p>Status Beasiswa</p></li>
-<li><p>Status Kerja</p></li>
-</ul>
-<p>Artinya tingkat kemiripan rendah dan karakteristik keduanya cukup berbeda.</p>
+<p>Hasil perhitungan tersebut menunjukkan bahwa jarak Manhattan antara data pertama dan data kedua adalah 0.7.</p>
+<p>Seperti pada Euclidean Distance, nilai Manhattan Distance
+yang telah dihitung kemudian disusun dalam bentuk matriks jarak.</p>
+<p>Jika terdapat <span class="math notranslate nohighlight">\(n\)</span> data, maka ukuran matriks jaraknya adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+n \times n
+\]</div>
+<p>Untuk dataset Iris lengkap:</p>
+<div class="math notranslate nohighlight">
+\[
+150 \times 150
+\]</div>
+<p>Sebagai ilustrasi, misalkan digunakan tiga data pertama.</p>
+<p>Diketahui hasil perhitungan:</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_2) = 0.7
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_3) = 0.6
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_2,x_3) = 0.5
+\]</div>
+<section id="id1">
+<h3>Pembentukan Matriks Jarak<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+D =
+\begin{bmatrix}
+0 &amp; 0.7 &amp; 0.6 \\
+0.7 &amp; 0 &amp; 0.5 \\
+0.6 &amp; 0.5 &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Sama dengan Euclidean Distance, elemen diagonal bernilai 0 karena jarak terhadap dirinya sendiri adalah 0.</p>
+<p>Manhattan Distance lebih sederhana dibandingkan Euclidean Distance
+karena tidak menggunakan akar kuadrat.
+Metode ini sering digunakan pada data berdimensi tinggi
+atau ketika ingin mengurangi pengaruh nilai ekstrem (outlier).</p>
+<p>Dalam implementasi sebenarnya, seluruh pasangan data
+akan dihitung secara otomatis menggunakan orange,
+sehingga terbentuk matriks jarak berukuran <span class="math notranslate nohighlight">\(150 \times 150\)</span>.</p>
+<p><img alt="Foto Saya" src="_images/euclidean.png" /></p>
 </section>
-<section id="implementasi-orange">
-<h2>Implementasi Orange<a class="headerlink" href="#implementasi-orange" title="Link to this heading">#</a></h2>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/Distance_Orange.png"><img alt="_images/Distance_Orange.png" src="_images/Distance_Orange.png" style="width: 100%;" />
-</a>
-</figure>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/Distance.png"><img alt="_images/Distance.png" src="_images/Distance.png" style="width: 50%;" />
-</a>
-</figure>
-<p>Perbedaan nilai jarak antara perhitungan manual dan hasil pada Orange terjadi karena pada perhitungan manual digunakan konsep Gower Distance yang menormalisasi tiap atribut dan menghitung rata-rata jarak. Sedangkan pada Orange, data kategorikal terlebih dahulu diubah menjadi numerik menggunakan one-hot encoding melalui widget Continuize, kemudian jarak dihitung menggunakan Euclidean Distance. Perbedaan metode ini menyebabkan nilai jarak yang dihasilkan tidak identik.</p>
+</section>
+<section id="implementasi-menggunakan-minkowski-distance">
+<h2>Implementasi Menggunakan Minkowski Distance<a class="headerlink" href="#implementasi-menggunakan-minkowski-distance" title="Link to this heading">#</a></h2>
+<p>Minkowski Distance merupakan generalisasi dari Euclidean Distance
+dan Manhattan Distance. Metode ini menggunakan parameter <span class="math notranslate nohighlight">\(p\)</span>
+untuk menentukan jenis jarak yang dihasilkan.</p>
+<p>Rumus Minkowski Distance adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+d(x,y) =
+\left(
+\sum_{i=1}^{n} |x_i - y_i|^p
+\right)^{\frac{1}{p}}
+\]</div>
+<p>Jika dataset memiliki 4 atribut seperti pada Iris,
+maka rumusnya menjadi:</p>
+<div class="math notranslate nohighlight">
+\[
+d(x,y) =
+\left(
+|x_1 - y_1|^p +
+|x_2 - y_2|^p +
+|x_3 - y_3|^p +
+|x_4 - y_4|^p
+\right)^{\frac{1}{p}}
+\]</div>
+<p>\subsection*{Hubungan dengan Metode Lain}</p>
+<p>Jika:</p>
+<div class="math notranslate nohighlight">
+\[
+p = 1
+\]</div>
+<p>maka Minkowski Distance sama dengan Manhattan Distance.</p>
+<p>Jika:</p>
+<div class="math notranslate nohighlight">
+\[
+p = 2
+\]</div>
+<p>maka Minkowski Distance sama dengan Euclidean Distance.</p>
+<p>Sebagai ilustrasi digunakan dua data pertama
+pada dataset Iris.</p>
+<p>Data ke-1:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 = (5.1, 3.5, 1.4, 0.2)
+\]</div>
+<p>Data ke-2:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2 = (4.9, 3.0, 1.4, 0.2)
+\]</div>
+<p>Misalkan digunakan parameter:</p>
+<div class="math notranslate nohighlight">
+\[
+p = 3
+\]</div>
+<p>Maka perhitungannya adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_2) =
+\left(
+|5.1 - 4.9|^3 +
+|3.5 - 3.0|^3 +
+|1.4 - 1.4|^3 +
+|0.2 - 0.2|^3
+\right)^{\frac{1}{3}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\left(
+(0.2)^3 +
+(0.5)^3 +
+0 +
+0
+\right)^{\frac{1}{3}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\left(
+0.008 + 0.125
+\right)^{\frac{1}{3}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+(0.133)^{\frac{1}{3}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\approx 0.509
+\]</div>
+<p>Hasil tersebut menunjukkan bahwa jarak Minkowski
+dengan <span class="math notranslate nohighlight">\(p=3\)</span> antara dua data tersebut adalah sekitar 0.509.</p>
+<section id="id2">
+<h3>Pembentukan Matriks Jarak<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Seperti metode sebelumnya, nilai Minkowski Distance
+disusun dalam bentuk matriks jarak.</p>
+<p>Jika terdapat <span class="math notranslate nohighlight">\(n\)</span> data, maka ukuran matriks jaraknya adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+n \times n
+\]</div>
+<p>Untuk dataset Iris lengkap:</p>
+<div class="math notranslate nohighlight">
+\[
+150 \times 150
+\]</div>
+<p>Sebagai ilustrasi untuk tiga data pertama,
+misalkan diperoleh hasil:</p>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_2) = 0.509
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_1,x_3) = 0.480
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d(x_2,x_3) = 0.420
+\]</div>
+<p>Maka matriks jarak yang terbentuk adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+D =
+\begin{bmatrix}
+0 &amp; 0.509 &amp; 0.480 \\
+0.509 &amp; 0 &amp; 0.420 \\
+0.480 &amp; 0.420 &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Parameter <span class="math notranslate nohighlight">\(p\)</span> mempengaruhi sensitivitas terhadap perbedaan atribut.
+Semakin besar nilai <span class="math notranslate nohighlight">\(p\)</span>, maka perbedaan yang besar pada suatu atribut
+akan memberikan pengaruh yang lebih signifikan terhadap nilai jarak.</p>
+<p>Dalam implementasi menggunakan orange,
+seluruh pasangan data akan dihitung secara otomatis
+untuk membentuk matriks jarak berukuran <span class="math notranslate nohighlight">\(150 \times 150\)</span>.</p>
+<p><img alt="Foto Saya" src="_images/minkowski.png" /></p>
+</section>
 </section>
 </section>
 
@@ -729,13 +835,22 @@ D = 0.689
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Distance%20Iris%20Data.html"
+       href="Data%20Student.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Distance in Iris Data</p>
+        <p class="prev-next-title">Data Student</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Distance%20Student%20Data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Distance in Student Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -753,31 +868,24 @@ D = 0.689
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-rentang-range-numerik"><strong>Tentukan Rentang (Range) Numerik</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Distance in Iris Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengukur-jarak-tipe-data-numerik">Mengukur Jarak Tipe Data Numerik</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-euclidean-distance">Implementasi Menggunakan Euclidean Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-matriks-jarak">Pembentukan Matriks Jarak</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-atribut-ordinal"><strong>D. Atribut Ordinal</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-ranking"><strong>Konversi Ranking</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tingkat-kepuasan"><strong>Tingkat_Kepuasan</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motivasi-belajar"><strong>Motivasi_Belajar</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-manhattan-distance">Implementasi Menggunakan Manhattan Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pembentukan Matriks Jarak</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-minkowski-distance">Implementasi Menggunakan Minkowski Distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pembentukan Matriks Jarak</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak-metode-campuran-gower"><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-seluruh-jarak"><strong>Total Seluruh Jarak</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nilai-akhir"><strong>Hitung Nilai Akhir</strong></a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi"><strong>Interpretasi</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
-</ul>
+
   </nav></div>
 
 </div></div>

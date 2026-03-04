@@ -18,4 +18,5 @@ chapters:
   - file : Data Distance
     sections:
       - file: Data Student
+      - file: Distance Iris Data
       - file: Distance Student Data

@@ -400,9 +400,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-rentang-range-numerik"><strong>Tentukan Rentang (Range) Numerik</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean"><strong>Euclidean</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-euclidean-orange">Implementasi Euclidean Orange</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
@@ -416,12 +417,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak-metode-campuran-gower"><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-seluruh-jarak"><strong>Total Seluruh Jarak</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nilai-akhir"><strong>Hitung Nilai Akhir</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi"><strong>Interpretasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak"><strong>Hitung Total Jarak</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
 </ul>
             </nav>
@@ -438,7 +434,7 @@ document.write(`
 <h1>Distance in Student Data<a class="headerlink" href="#distance-in-student-data" title="Link to this heading">#</a></h1>
 <p><strong>perhitungan manual</strong> menggunakan <strong>2 mahasiswa dari dataset asli (misal diambil dari baris pertama dan kedua dataset)</strong>:</p>
 <ul class="simple">
-<li><p>Numerik → Normalisasi (range)</p></li>
+<li><p>Numerik → Normalisasi</p></li>
 <li><p>Nominal → Simple Matching</p></li>
 <li><p>Ordinal → Ranking + Normalisasi</p></li>
 <li><p>Binary → Simple Matching</p></li>
@@ -498,52 +494,38 @@ document.write(`
 </table>
 </div>
 </section>
-<section id="tentukan-rentang-range-numerik">
-<h2><strong>Tentukan Rentang (Range) Numerik</strong><a class="headerlink" href="#tentukan-rentang-range-numerik" title="Link to this heading">#</a></h2>
-<p>Dari dataset:</p>
-<ul class="simple">
-<li><p>Usia: 18 – 25 → Range = 7</p></li>
-<li><p>Semester: 1 – 8 → Range = 7</p></li>
-<li><p>IPK: 2.00 – 3.99 → Range = 1.99</p></li>
-<li><p>Jumlah_Organisasi: 0 – 5 → Range = 5</p></li>
-</ul>
-</section>
 <section id="hitung-jarak-tiap-atribut">
 <h2><strong>Hitung Jarak Tiap Atribut</strong><a class="headerlink" href="#hitung-jarak-tiap-atribut" title="Link to this heading">#</a></h2>
 <section id="a-atribut-numerik-normalisasi">
 <h3><strong>A. Atribut Numerik (Normalisasi)</strong><a class="headerlink" href="#a-atribut-numerik-normalisasi" title="Link to this heading">#</a></h3>
-<ul>
-<li><h5 class="rubric" id="usia"><strong>Usia</strong></h5>
-</li>
-</ul>
+</section>
+<section id="euclidean">
+<h3><strong>Euclidean</strong><a class="headerlink" href="#euclidean" title="Link to this heading">#</a></h3>
+<p>Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. Fitur yang merupakan tipe data numerik adalah <code class="docutils literal notranslate"><span class="pre">Usia</span></code>, <code class="docutils literal notranslate"><span class="pre">Semester</span></code>, <code class="docutils literal notranslate"><span class="pre">IPK</span></code>, <code class="docutils literal notranslate"><span class="pre">Jumlah_Organisasi</span></code>.
+Dari fitur Tersebut, diambil data pertama dan kedua untuk dihitung jaraknya, dan didapatkan hasilnya sebagai berikut</p>
 <div class="math notranslate nohighlight">
 \[
-|18 - 25| / 7 = 7/7 = 1
+d(\mathbf{p}, \mathbf{q}) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}
 \]</div>
-<ul>
-<li><h5 class="rubric" id="semester"><strong>Semester</strong></h5>
-</li>
-</ul>
 <div class="math notranslate nohighlight">
 \[
-|5 - 3| / 7 = 2/7 = 0.29
+d(\mathbf{1}, \mathbf{2}) = \sqrt{(18-25)^2 + (5-3)^2 + (2.22-3.72)^2 + (1-4)^2}
 \]</div>
-<ul>
-<li><h5 class="rubric" id="ipk"><strong>IPK</strong></h5>
-</li>
-</ul>
 <div class="math notranslate nohighlight">
 \[
-|2.22 - 3.72| / 1.99 = 1.50 / 1.99 = 0.75
+d(\mathbf{1}, \mathbf{2}) = \sqrt{49+4+2.25+9}
 \]</div>
-<ul>
-<li><h5 class="rubric" id="jumlah-organisasi"><strong>Jumlah Organisasi</strong></h5>
-</li>
-</ul>
 <div class="math notranslate nohighlight">
 \[
-|1 - 4| / 5 = 3/5 = 0.60
+d(\mathbf{1}, \mathbf{2}) = \sqrt{64.25} = 8.02
 \]</div>
+</section>
+<section id="implementasi-euclidean-orange">
+<h3>Implementasi Euclidean Orange<a class="headerlink" href="#implementasi-euclidean-orange" title="Link to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/euclidean_numerik.png"><img alt="_images/euclidean_numerik.png" src="_images/euclidean_numerik.png" style="width: 40%;" />
+</a>
+</figure>
 </section>
 <section id="b-atribut-nominal-simple-matching">
 <h3><strong>B. Atribut Nominal (Simple Matching)</strong><a class="headerlink" href="#b-atribut-nominal-simple-matching" title="Link to this heading">#</a></h3>
@@ -639,50 +621,22 @@ Mahasiswa 2 = Sangat Tinggi (5)</p>
 </section>
 </section>
 </section>
-<section id="hitung-total-jarak-metode-campuran-gower">
-<h2><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong><a class="headerlink" href="#hitung-total-jarak-metode-campuran-gower" title="Link to this heading">#</a></h2>
-<p>Jumlah atribut yang dihitung = 10</p>
+<section id="hitung-total-jarak">
+<h2><strong>Hitung Total Jarak</strong><a class="headerlink" href="#hitung-total-jarak" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
-D = \frac{\text{Total seluruh jarak}}{10}
+8.016+ 0 + 1 + 1 + 1 + 0.5 + 0.75 = 12.266
 \]</div>
-<section id="total-seluruh-jarak">
-<h3><strong>Total Seluruh Jarak</strong><a class="headerlink" href="#total-seluruh-jarak" title="Link to this heading">#</a></h3>
+<p>Hitung Nilai Akhir :</p>
 <div class="math notranslate nohighlight">
 \[
-1 + 0.29 + 0.75 + 0.60 + 0 + 1 + 1 + 1 + 0.5 + 0.75 = 6.89
+\sqrt{12.266}
 \]</div>
-</section>
-<section id="hitung-nilai-akhir">
-<h3><strong>Hitung Nilai Akhir</strong><a class="headerlink" href="#hitung-nilai-akhir" title="Link to this heading">#</a></h3>
+<p>Hasil akhir jarak Euclidean antara data 1 dan data 2 adalah sekitar :</p>
 <div class="math notranslate nohighlight">
 \[
-D = \frac{6.89}{10}
+3.501
 \]</div>
-<div class="math notranslate nohighlight">
-\[
-D = 0.689
-\]</div>
-</section>
-</section>
-<section id="interpretasi">
-<h2><strong>Interpretasi</strong><a class="headerlink" href="#interpretasi" title="Link to this heading">#</a></h2>
-<p>Nilai dissimilarity:</p>
-<div class="math notranslate nohighlight">
-\[
-D = 0.689
-\]</div>
-<p>Karena mendekati 1, maka kedua mahasiswa ini <strong>cukup berbeda</strong>.</p>
-<p>Perbedaan terbesar terdapat pada:</p>
-<ul class="simple">
-<li><p>Usia</p></li>
-<li><p>IPK</p></li>
-<li><p>Motivasi Belajar</p></li>
-<li><p>Program Studi</p></li>
-<li><p>Status Beasiswa</p></li>
-<li><p>Status Kerja</p></li>
-</ul>
-<p>Artinya tingkat kemiripan rendah dan karakteristik keduanya cukup berbeda.</p>
 </section>
 <section id="implementasi-orange">
 <h2>Implementasi Orange<a class="headerlink" href="#implementasi-orange" title="Link to this heading">#</a></h2>
@@ -691,7 +645,7 @@ D = 0.689
 </a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="_images/Distance.png"><img alt="_images/Distance.png" src="_images/Distance.png" style="width: 50%;" />
+<a class="reference internal image-reference" href="_images/Distance.png"><img alt="_images/Distance.png" src="_images/Distance.png" style="width: 40%;" />
 </a>
 </figure>
 <p>Perbedaan nilai jarak antara perhitungan manual dan hasil pada Orange terjadi karena pada perhitungan manual digunakan konsep Gower Distance yang menormalisasi tiap atribut dan menghitung rata-rata jarak. Sedangkan pada Orange, data kategorikal terlebih dahulu diubah menjadi numerik menggunakan one-hot encoding melalui widget Continuize, kemudian jarak dihitung menggunakan Euclidean Distance. Perbedaan metode ini menyebabkan nilai jarak yang dihasilkan tidak identik.</p>
@@ -754,9 +708,10 @@ D = 0.689
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-rentang-range-numerik"><strong>Tentukan Rentang (Range) Numerik</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean"><strong>Euclidean</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-euclidean-orange">Implementasi Euclidean Orange</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
@@ -770,12 +725,7 @@ D = 0.689
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak-metode-campuran-gower"><strong>Hitung Total Jarak (Metode Campuran / Gower)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-seluruh-jarak"><strong>Total Seluruh Jarak</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-nilai-akhir"><strong>Hitung Nilai Akhir</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi"><strong>Interpretasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak"><strong>Hitung Total Jarak</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
 </ul>
   </nav></div>

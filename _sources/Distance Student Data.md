@@ -61,7 +61,7 @@ d(\mathbf{1}, \mathbf{2}) = \sqrt{49+4+2.25+9}
 $$
 
 $$
-d(\mathbf{1}, \mathbf{2}) = \sqrt{64.25} = 8.02
+d(\mathbf{1}, \mathbf{2}) = \sqrt{64.25} = 8.016
 $$
 
 ### Implementasi Euclidean Orange

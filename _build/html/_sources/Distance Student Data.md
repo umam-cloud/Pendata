@@ -1,8 +1,23 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+
 # Distance in Student Data
 
 **perhitungan manual** menggunakan **2 mahasiswa dari dataset asli (misal diambil dari baris pertama dan kedua dataset)**:
 
-* Numerik → Normalisasi (range)
+* Numerik → Normalisasi
 * Nominal → Simple Matching
 * Ordinal → Ranking + Normalisasi
 * Binary → Simple Matching
@@ -25,42 +40,39 @@ Misalkan dari dataset diperoleh:
 | Status_Kerja       | Part Time  | Full Time | 
 
 
-## **Tentukan Rentang (Range) Numerik**
-
-Dari dataset:
-
-* Usia: 18 – 25 → Range = 7
-* Semester: 1 – 8 → Range = 7
-* IPK: 2.00 – 3.99 → Range = 1.99
-* Jumlah_Organisasi: 0 – 5 → Range = 5
-
 ## **Hitung Jarak Tiap Atribut**
 
 ### **A. Atribut Numerik (Normalisasi)**
+### **Euclidean**
 
-- ##### **Usia**
-
-$$
-|18 - 25| / 7 = 7/7 = 1
-$$
-
-- ##### **Semester**
+Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. Fitur yang merupakan tipe data numerik adalah `Usia`, `Semester`, `IPK`, `Jumlah_Organisasi`.
+Dari fitur Tersebut, diambil data pertama dan kedua untuk dihitung jaraknya, dan didapatkan hasilnya sebagai berikut 
 
 $$
-|5 - 3| / 7 = 2/7 = 0.29
+d(\mathbf{p}, \mathbf{q}) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}
 $$
 
-- ##### **IPK**
-
 $$
-|2.22 - 3.72| / 1.99 = 1.50 / 1.99 = 0.75
+d(\mathbf{1}, \mathbf{2}) = \sqrt{(18-25)^2 + (5-3)^2 + (2.22-3.72)^2 + (1-4)^2}
 $$
 
-- ##### **Jumlah Organisasi**
+$$
+d(\mathbf{1}, \mathbf{2}) = \sqrt{49+4+2.25+9}
+$$
 
 $$
-|1 - 4| / 5 = 3/5 = 0.60
+d(\mathbf{1}, \mathbf{2}) = \sqrt{64.25} = 8.02
 $$
+
+### Implementasi Euclidean Orange
+
+```{figure} /img/euclidean_numerik.png
+---
+width: 40%
+fig-margin : 0
+---
+```
+
 
 ### **B. Atribut Nominal (Simple Matching)**
 
@@ -158,50 +170,23 @@ $$
 |0.25 - 1| = 0.75
 $$
 
-## **Hitung Total Jarak (Metode Campuran / Gower)**
-
-Jumlah atribut yang dihitung = 10
-
+## **Hitung Total Jarak**
 $$
-D = \frac{\text{Total seluruh jarak}}{10}
+8.016+ 0 + 1 + 1 + 1 + 0.5 + 0.75 = 12.266
 $$
 
-##### **Total Seluruh Jarak**
+Hitung Nilai Akhir : 
 
 $$
-1 + 0.29 + 0.75 + 0.60 + 0 + 1 + 1 + 1 + 0.5 + 0.75 = 6.89
+\sqrt{12.266}
 $$
 
-##### **Hitung Nilai Akhir**
+Hasil akhir jarak Euclidean antara data 1 dan data 2 adalah sekitar :
 
 $$
-D = \frac{6.89}{10}
+3.501
 $$
 
-$$
-D = 0.689
-$$
-
-## **Interpretasi**
-
-Nilai dissimilarity:
-
-$$
-D = 0.689
-$$
-
-Karena mendekati 1, maka kedua mahasiswa ini **cukup berbeda**.
-
-Perbedaan terbesar terdapat pada:
-
-- Usia
-- IPK
-- Motivasi Belajar
-- Program Studi
-- Status Beasiswa
-- Status Kerja
-
-Artinya tingkat kemiripan rendah dan karakteristik keduanya cukup berbeda.
 
 ## Implementasi Orange
 
@@ -214,7 +199,7 @@ fig-margin : 0
 
 ```{figure} /img/Distance.png
 ---
-width: 50%
+width: 40%
 fig-margin : 0
 ---
 ```

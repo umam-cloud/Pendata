@@ -1,4 +1,4 @@
-# Preprocessing
+# Preprocessing Data
 
 ## 1. Pengertian Preprocessing
 **Preprocessing data** adalah proses awal dalam data mining yang bertujuan untuk menyiapkan data mentah agar menjadi data yang bersih, terstruktur, dan siap dianalisis.  

@@ -14,9 +14,21 @@ chapters:
           - file: Data Iris
           - file: Analisis Statistik Deskriptif
           - file: Visualisasi Distribusi Data
-  
-  - file : Data Distance
+
+  - file: Data Distance
     sections:
       - file: Data Student
       - file: Distance Iris Data
       - file: Distance Student Data
+
+  - file: Preprocessing
+    sections:
+      - file: Data normalization
+      
+      - file: Knn
+        sections:
+          - file: Knn_Missing_Value
+
+      - file: Wknn
+        sections:
+          - file: Wknn_Missing_Value

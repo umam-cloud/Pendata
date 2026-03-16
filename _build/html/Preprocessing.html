@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Distance in Student Data &#8212; My sample book</title>
+    <title>Preprocessing &#8212; My sample book</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Distance Student Data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Preprocessing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preprocessing" href="Preprocessing.html" />
-    <link rel="prev" title="Distance in Iris Data" href="Distance%20Iris%20Data.html" />
+    <link rel="next" title="Normalisasi Data" href="Data%20normalization.html" />
+    <link rel="prev" title="Distance in Student Data" href="Distance%20Student%20Data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,7 +192,7 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Data%20Distance.html">Data Distance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Data%20Distance.html">Data Distance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Data%20Student.html">Data Student</a></li>
 
 
@@ -202,10 +202,10 @@
 
 <li class="toctree-l2"><a class="reference internal" href="Distance%20Iris%20Data.html">Distance in Iris Data</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Distance in Student Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Distance%20Student%20Data.html">Distance in Student Data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Preprocessing.html">Preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Preprocessing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Data%20normalization.html">Normalisasi Data</a></li>
 
 
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDistance Student Data.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPreprocessing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +343,7 @@
       
       
       
-      <li><a href="_sources/Distance Student Data.md" target="_blank"
+      <li><a href="_sources/Preprocessing.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -427,7 +427,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Distance in Student Data</h1>
+    <h1>Preprocessing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -437,26 +437,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean"><strong>Euclidean</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-euclidean-orange">Implementasi Euclidean Orange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-preprocessing">1. Pengertian Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-preprocessing">2. Tujuan Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-data-preprocessing">3. Tahapan dalam Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">3.1 Data Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integration">3.2 Data Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation">3.3 Data Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-reduction">3.4 Data Reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-discretization">3.5 Data Discretization</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-atribut-ordinal"><strong>D. Atribut Ordinal</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-ranking"><strong>Konversi Ranking</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tingkat-kepuasan"><strong>Tingkat_Kepuasan</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motivasi-belajar"><strong>Motivasi_Belajar</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak"><strong>Hitung Total Jarak</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-alur-preprocessing">4. Contoh Alur Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5. Kesimpulan</a></li>
 </ul>
             </nav>
         </div>
@@ -468,226 +460,181 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="distance-in-student-data">
-<h1>Distance in Student Data<a class="headerlink" href="#distance-in-student-data" title="Link to this heading">#</a></h1>
-<p><strong>perhitungan manual</strong> menggunakan <strong>2 mahasiswa dari dataset asli (misal diambil dari baris pertama dan kedua dataset)</strong>:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h1>
+<section id="pengertian-preprocessing">
+<h2>1. Pengertian Preprocessing<a class="headerlink" href="#pengertian-preprocessing" title="Link to this heading">#</a></h2>
+<p><strong>Preprocessing data</strong> adalah proses awal dalam data mining yang bertujuan untuk menyiapkan data mentah agar menjadi data yang bersih, terstruktur, dan siap dianalisis.</p>
+<p>Data yang diperoleh dari berbagai sumber biasanya memiliki masalah seperti:</p>
 <ul class="simple">
-<li><p>Numerik → Normalisasi</p></li>
-<li><p>Nominal → Simple Matching</p></li>
-<li><p>Ordinal → Ranking + Normalisasi</p></li>
-<li><p>Binary → Simple Matching</p></li>
+<li><p>Data tidak lengkap (missing value)</p></li>
+<li><p>Data tidak konsisten</p></li>
+<li><p>Data memiliki skala yang berbeda</p></li>
+<li><p>Data mengandung noise atau kesalahan</p></li>
 </ul>
-<section id="data-dua-mahasiswa">
-<h2><strong>Data Dua Mahasiswa</strong><a class="headerlink" href="#data-dua-mahasiswa" title="Link to this heading">#</a></h2>
-<p>Misalkan dari dataset diperoleh:</p>
+<p>Oleh karena itu, preprocessing dilakukan agar kualitas data meningkat sehingga hasil analisis atau model yang dihasilkan menjadi lebih akurat.</p>
+</section>
+<hr class="docutils" />
+<section id="tujuan-data-preprocessing">
+<h2>2. Tujuan Data Preprocessing<a class="headerlink" href="#tujuan-data-preprocessing" title="Link to this heading">#</a></h2>
+<p>Beberapa tujuan utama preprocessing adalah:</p>
+<ul class="simple">
+<li><p><strong>Meningkatkan kualitas data</strong></p></li>
+<li><p><strong>Mengurangi noise atau kesalahan pada data</strong></p></li>
+<li><p><strong>Menyesuaikan format data agar mudah diproses algoritma</strong></p></li>
+<li><p><strong>Meningkatkan akurasi hasil data mining</strong></p></li>
+<li><p><strong>Mempercepat proses analisis data</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tahapan-dalam-data-preprocessing">
+<h2>3. Tahapan dalam Data Preprocessing<a class="headerlink" href="#tahapan-dalam-data-preprocessing" title="Link to this heading">#</a></h2>
+<section id="data-cleaning">
+<h3>3.1 Data Cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h3>
+<p>Data cleaning adalah proses membersihkan data dari kesalahan atau ketidakkonsistenan.</p>
+<p>Contoh masalah yang diperbaiki:</p>
+<ul class="simple">
+<li><p>Missing value</p></li>
+<li><p>Data duplikat</p></li>
+<li><p>Kesalahan penulisan</p></li>
+<li><p>Outlier</p></li>
+</ul>
+<p>Contoh penanganan:</p>
+<ul class="simple">
+<li><p>Menghapus data yang kosong</p></li>
+<li><p>Mengisi nilai kosong dengan mean atau median</p></li>
+<li><p>Menghapus data duplikat</p></li>
+</ul>
+<p>Contoh:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Atribut</p></th>
-<th class="head"><p>Mahasiswa 1</p></th>
-<th class="head"><p>Mahasiswa 2</p></th>
+<tr class="row-odd"><th class="head"><p>Nama</p></th>
+<th class="head"><p>Umur</p></th>
+<th class="head"><p>IPK</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Usia</p></td>
-<td><p>18</p></td>
-<td><p>25</p></td>
+<tr class="row-even"><td><p>Andi</p></td>
+<td><p>20</p></td>
+<td><p>3.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Semester</p></td>
-<td><p>5</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="row-even"><td><p>IPK</p></td>
-<td><p>2.22</p></td>
-<td><p>3.72</p></td>
-</tr>
-<tr class="row-odd"><td><p>Jumlah_Organisasi</p></td>
-<td><p>1</p></td>
-<td><p>4</p></td>
-</tr>
-<tr class="row-even"><td><p>Jenis_Kelamin</p></td>
-<td><p>Perempuan</p></td>
-<td><p>Perempuan</p></td>
-</tr>
-<tr class="row-odd"><td><p>Program_Studi</p></td>
-<td><p>Manajemen</p></td>
-<td><p>Sistem Informasi</p></td>
-</tr>
-<tr class="row-even"><td><p>Tingkat_Kepuasan</p></td>
-<td><p>Sedang</p></td>
-<td><p>Rendah</p></td>
-</tr>
-<tr class="row-odd"><td><p>Motivasi_Belajar</p></td>
-<td><p>Rendah</p></td>
-<td><p>Sangat Tinggi</p></td>
-</tr>
-<tr class="row-even"><td><p>Status_Beasiswa</p></td>
-<td><p>Tidak</p></td>
-<td><p>Ya</p></td>
-</tr>
-<tr class="row-odd"><td><p>Status_Kerja</p></td>
-<td><p>Part Time</p></td>
-<td><p>Full Time</p></td>
+<tr class="row-odd"><td><p>Budi</p></td>
+<td><p>-</p></td>
+<td><p>3.2</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>Nilai umur yang kosong dapat diisi dengan rata-rata umur.</p>
 </section>
-<section id="hitung-jarak-tiap-atribut">
-<h2><strong>Hitung Jarak Tiap Atribut</strong><a class="headerlink" href="#hitung-jarak-tiap-atribut" title="Link to this heading">#</a></h2>
-<section id="a-atribut-numerik-normalisasi">
-<h3><strong>A. Atribut Numerik (Normalisasi)</strong><a class="headerlink" href="#a-atribut-numerik-normalisasi" title="Link to this heading">#</a></h3>
-</section>
-<section id="euclidean">
-<h3><strong>Euclidean</strong><a class="headerlink" href="#euclidean" title="Link to this heading">#</a></h3>
-<p>Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. Fitur yang merupakan tipe data numerik adalah <code class="docutils literal notranslate"><span class="pre">Usia</span></code>, <code class="docutils literal notranslate"><span class="pre">Semester</span></code>, <code class="docutils literal notranslate"><span class="pre">IPK</span></code>, <code class="docutils literal notranslate"><span class="pre">Jumlah_Organisasi</span></code>.
-Dari fitur Tersebut, diambil data pertama dan kedua untuk dihitung jaraknya, dan didapatkan hasilnya sebagai berikut</p>
-<div class="math notranslate nohighlight">
-\[
-d(\mathbf{p}, \mathbf{q}) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-d(\mathbf{1}, \mathbf{2}) = \sqrt{(18-25)^2 + (5-3)^2 + (2.22-3.72)^2 + (1-4)^2}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-d(\mathbf{1}, \mathbf{2}) = \sqrt{49+4+2.25+9}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-d(\mathbf{1}, \mathbf{2}) = \sqrt{64.25} = 8.016
-\]</div>
-</section>
-<section id="implementasi-euclidean-orange">
-<h3>Implementasi Euclidean Orange<a class="headerlink" href="#implementasi-euclidean-orange" title="Link to this heading">#</a></h3>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/euclidean_numerik.png"><img alt="_images/euclidean_numerik.png" src="_images/euclidean_numerik.png" style="width: 40%;" />
-</a>
-</figure>
-</section>
-<section id="b-atribut-nominal-simple-matching">
-<h3><strong>B. Atribut Nominal (Simple Matching)</strong><a class="headerlink" href="#b-atribut-nominal-simple-matching" title="Link to this heading">#</a></h3>
-<ul>
-<li><h5 class="rubric" id="jenis-kelamin"><strong>Jenis_Kelamin</strong></h5>
-</li>
-</ul>
-<p>Sama → 0</p>
-<ul>
-<li><h5 class="rubric" id="program-studi"><strong>Program_Studi</strong></h5>
-</li>
-</ul>
-<p>Berbeda → 1</p>
-<ul>
-<li><h5 class="rubric" id="status-kerja"><strong>Status_Kerja</strong></h5>
-</li>
-</ul>
-<p>Berbeda → 1</p>
-</section>
-<section id="c-atribut-binary">
-<h3><strong>C. Atribut Binary</strong><a class="headerlink" href="#c-atribut-binary" title="Link to this heading">#</a></h3>
-<section id="status-beasiswa">
-<h4><strong>Status_Beasiswa</strong><a class="headerlink" href="#status-beasiswa" title="Link to this heading">#</a></h4>
-<p>Berbeda (Tidak vs Ya) → 1</p>
-</section>
-</section>
-<section id="d-atribut-ordinal">
-<h3><strong>D. Atribut Ordinal</strong><a class="headerlink" href="#d-atribut-ordinal" title="Link to this heading">#</a></h3>
-<section id="konversi-ranking">
-<h4><strong>Konversi Ranking</strong><a class="headerlink" href="#konversi-ranking" title="Link to this heading">#</a></h4>
-<p>Tingkat_Kepuasan:</p>
+<hr class="docutils" />
+<section id="data-integration">
+<h3>3.2 Data Integration<a class="headerlink" href="#data-integration" title="Link to this heading">#</a></h3>
+<p>Data integration adalah proses menggabungkan data dari berbagai sumber menjadi satu dataset yang terintegrasi.</p>
+<p>Contoh:</p>
 <ul class="simple">
-<li><p>Rendah = 1</p></li>
-<li><p>Sedang = 2</p></li>
-<li><p>Tinggi = 3</p></li>
+<li><p>Data mahasiswa dari <strong>database akademik</strong></p></li>
+<li><p>Data kehadiran dari <strong>sistem presensi</strong></p></li>
+<li><p>Data kegiatan dari <strong>organisasi kampus</strong></p></li>
 </ul>
-<p>Motivasi_Belajar:</p>
+<p>Semua data tersebut digabungkan untuk analisis yang lebih lengkap.</p>
+</section>
+<hr class="docutils" />
+<section id="data-transformation">
+<h3>3.3 Data Transformation<a class="headerlink" href="#data-transformation" title="Link to this heading">#</a></h3>
+<p>Data transformation adalah proses mengubah format atau skala data agar sesuai untuk analisis.</p>
+<p>Contoh teknik transformasi:</p>
 <ul class="simple">
-<li><p>Sangat Rendah = 1</p></li>
-<li><p>Rendah = 2</p></li>
-<li><p>Sedang = 3</p></li>
-<li><p>Tinggi = 4</p></li>
-<li><p>Sangat Tinggi = 5</p></li>
+<li><p><strong>Normalisasi</strong></p></li>
+<li><p><strong>Standarisasi</strong></p></li>
+<li><p><strong>Encoding data kategorikal</strong></p></li>
+<li><p><strong>Agregasi data</strong></p></li>
+</ul>
+<p>Contoh normalisasi:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Umur</p></th>
+<th class="head"><p>Setelah Normalisasi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>0.9</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tujuannya agar nilai memiliki skala yang sama.</p>
+</section>
+<hr class="docutils" />
+<section id="data-reduction">
+<h3>3.4 Data Reduction<a class="headerlink" href="#data-reduction" title="Link to this heading">#</a></h3>
+<p>Data reduction bertujuan untuk mengurangi jumlah data tanpa menghilangkan informasi penting.</p>
+<p>Beberapa teknik yang digunakan:</p>
+<ul class="simple">
+<li><p>Feature selection</p></li>
+<li><p>Sampling</p></li>
+<li><p>Dimensionality reduction</p></li>
+<li><p>Aggregation</p></li>
+</ul>
+<p>Contoh:
+Dataset dengan 100 atribut dapat dipilih menjadi hanya 10 atribut yang paling relevan.</p>
+</section>
+<hr class="docutils" />
+<section id="data-discretization">
+<h3>3.5 Data Discretization<a class="headerlink" href="#data-discretization" title="Link to this heading">#</a></h3>
+<p>Data discretization adalah proses mengubah data numerik menjadi kategori.</p>
+<p>Contoh:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nilai</p></th>
+<th class="head"><p>Kategori</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>85</p></td>
+<td><p>Tinggi</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>Sedang</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>Rendah</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hal ini sering digunakan pada algoritma klasifikasi tertentu.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contoh-alur-preprocessing">
+<h2>4. Contoh Alur Preprocessing<a class="headerlink" href="#contoh-alur-preprocessing" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Mengumpulkan data dari berbagai sumber</p></li>
+<li><p>Membersihkan data dari missing value</p></li>
+<li><p>Mengubah format data</p></li>
+<li><p>Melakukan normalisasi atau standarisasi</p></li>
+<li><p>Mengurangi atribut yang tidak diperlukan</p></li>
+</ol>
+<p>Setelah proses ini selesai, data siap digunakan untuk proses <strong>data mining</strong> seperti:</p>
+<ul class="simple">
+<li><p>Klasifikasi</p></li>
+<li><p>Clustering</p></li>
+<li><p>Prediksi</p></li>
+<li><p>Association rule</p></li>
 </ul>
 </section>
-<section id="tingkat-kepuasan">
-<h4><strong>Tingkat_Kepuasan</strong><a class="headerlink" href="#tingkat-kepuasan" title="Link to this heading">#</a></h4>
-<p>Mahasiswa 1 = Sedang (2)<br />
-Mahasiswa 2 = Rendah (1)</p>
-<p>Normalisasi:</p>
-<div class="math notranslate nohighlight">
-\[
-z = \frac{r - 1}{M - 1}
-\]</div>
-<p>Karena M = 3</p>
-<p>Mahasiswa 1:</p>
-<div class="math notranslate nohighlight">
-\[
-(2 - 1)/(3 - 1) = 1/2 = 0.5
-\]</div>
-<p>Mahasiswa 2:</p>
-<div class="math notranslate nohighlight">
-\[
-(1 - 1)/(3 - 1) = 0/2 = 0
-\]</div>
-<p>Jarak:</p>
-<div class="math notranslate nohighlight">
-\[
-|0.5 - 0| = 0.5
-\]</div>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>5. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Preprocessing merupakan tahap penting dalam data mining karena kualitas data sangat mempengaruhi hasil analisis. Dengan melakukan proses seperti <strong>data cleaning, data integration, data transformation, data reduction, dan data discretization</strong>, data mentah dapat diubah menjadi data yang lebih siap untuk dianalisis sehingga menghasilkan model yang lebih akurat dan efektif.</p>
 </section>
-<section id="motivasi-belajar">
-<h4><strong>Motivasi_Belajar</strong><a class="headerlink" href="#motivasi-belajar" title="Link to this heading">#</a></h4>
-<p>Mahasiswa 1 = Rendah (2)<br />
-Mahasiswa 2 = Sangat Tinggi (5)</p>
-<p>M = 5</p>
-<p>Mahasiswa 1:</p>
-<p>Mahasiswa 1:</p>
-<div class="math notranslate nohighlight">
-\[
-(2 - 1)/4 = 1/4 = 0.25
-\]</div>
-<p>Mahasiswa 2:</p>
-<div class="math notranslate nohighlight">
-\[
-(5 - 1)/4 = 4/4 = 1
-\]</div>
-<p>Jarak:</p>
-<div class="math notranslate nohighlight">
-\[
-|0.25 - 1| = 0.75
-\]</div>
-</section>
-</section>
-</section>
-<section id="hitung-total-jarak">
-<h2><strong>Hitung Total Jarak</strong><a class="headerlink" href="#hitung-total-jarak" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[
-8.016+ 0 + 1 + 1 + 1 + 0.5 + 0.75 = 12.266
-\]</div>
-<p>Hitung Nilai Akhir :</p>
-<div class="math notranslate nohighlight">
-\[
-\sqrt{12.266}
-\]</div>
-<p>Hasil akhir jarak Euclidean antara data 1 dan data 2 adalah sekitar :</p>
-<div class="math notranslate nohighlight">
-\[
-3.501
-\]</div>
-</section>
-<section id="implementasi-orange">
-<h2>Implementasi Orange<a class="headerlink" href="#implementasi-orange" title="Link to this heading">#</a></h2>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/Distance_Orange.png"><img alt="_images/Distance_Orange.png" src="_images/Distance_Orange.png" style="width: 100%;" />
-</a>
-</figure>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/Distance.png"><img alt="_images/Distance.png" src="_images/Distance.png" style="width: 40%;" />
-</a>
-</figure>
-<p>Perbedaan nilai jarak antara perhitungan manual dan hasil pada Orange terjadi karena pada perhitungan manual digunakan konsep Gower Distance yang menormalisasi tiap atribut dan menghitung rata-rata jarak. Sedangkan pada Orange, data kategorikal terlebih dahulu diubah menjadi numerik menggunakan one-hot encoding melalui widget Continuize, kemudian jarak dihitung menggunakan Euclidean Distance. Perbedaan metode ini menyebabkan nilai jarak yang dihasilkan tidak identik.</p>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -721,20 +668,20 @@ Mahasiswa 2 = Sangat Tinggi (5)</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Distance%20Iris%20Data.html"
+       href="Distance%20Student%20Data.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Distance in Iris Data</p>
+        <p class="prev-next-title">Distance in Student Data</p>
       </div>
     </a>
     <a class="right-next"
-       href="Preprocessing.html"
+       href="Data%20normalization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Preprocessing</p>
+        <p class="prev-next-title">Normalisasi Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -754,26 +701,18 @@ Mahasiswa 2 = Sangat Tinggi (5)</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dua-mahasiswa"><strong>Data Dua Mahasiswa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-tiap-atribut"><strong>Hitung Jarak Tiap Atribut</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-atribut-numerik-normalisasi"><strong>A. Atribut Numerik (Normalisasi)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean"><strong>Euclidean</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-euclidean-orange">Implementasi Euclidean Orange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-atribut-nominal-simple-matching"><strong>B. Atribut Nominal (Simple Matching)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-atribut-binary"><strong>C. Atribut Binary</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#status-beasiswa"><strong>Status_Beasiswa</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-preprocessing">1. Pengertian Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-preprocessing">2. Tujuan Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-dalam-data-preprocessing">3. Tahapan dalam Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">3.1 Data Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integration">3.2 Data Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation">3.3 Data Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-reduction">3.4 Data Reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-discretization">3.5 Data Discretization</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-atribut-ordinal"><strong>D. Atribut Ordinal</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#konversi-ranking"><strong>Konversi Ranking</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tingkat-kepuasan"><strong>Tingkat_Kepuasan</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motivasi-belajar"><strong>Motivasi_Belajar</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-total-jarak"><strong>Hitung Total Jarak</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-orange">Implementasi Orange</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-alur-preprocessing">4. Contoh Alur Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5. Kesimpulan</a></li>
 </ul>
   </nav></div>
 

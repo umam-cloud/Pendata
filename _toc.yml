@@ -29,6 +29,6 @@ chapters:
         sections:
           - file: Knn_Missing_Value
 
-      - file: Wknn
+      - file: wknn
         sections:
           - file: Wknn_Missing_Value

@@ -30,6 +30,4 @@ chapters:
         sections:
           - file: Wknn_Missing_Value
 
-  - file: uts
-    sections:
-      - file: uts_jawaban
+  - file: UTS

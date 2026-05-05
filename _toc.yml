@@ -31,3 +31,4 @@ chapters:
           - file: Wknn_Missing_Value
 
   - file: UTS
+  - file: Naive_Bayes

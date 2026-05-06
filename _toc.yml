@@ -32,3 +32,4 @@ chapters:
 
   - file: UTS
   - file: Naive_Bayes
+  - file: Decision_tree

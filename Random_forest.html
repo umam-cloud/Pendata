@@ -1,0 +1,1082 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analisis Data Menggunakan Random Forest &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Random_forest';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Analisis Data Menggunakan Decision Tree" href="Decision_tree.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    WELCOME TO MY NOTEBOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Buesnis%20Understanding.html">Business Understanding</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Memahami%20Data.html">Data Understanding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Explorasi%20Data.html">Explorasi Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data%20Iris.html">Data Iris</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analisis%20Statistik%20Deskriptif.html">Analisis Statistik Deskriptif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Visualisasi%20Distribusi%20Data.html">Visualisasi Distribusi Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Data%20Distance.html">Data Distance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Data%20Student.html">Data Student</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Distance%20Iris%20Data.html">Distance in Iris Data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Distance%20Student%20Data.html">Distance in Student Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Preprocessing.html">Preprocessing Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Data%20normalization.html">Normalisasi Data</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="Knn.html">K-Nearest Neighbor (KNN)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Knn_Missing_Value.html">KNN Missing Value</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="wknn.html">Weighted K-Nearest Neighbor(WKNN)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Wknn_Missing_Value.html">Perhitungan WKNN</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS.html">UTS (Ujian Tengah Semester)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Naive_Bayes.html">Analisis Data Menggunakan Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Decision_tree.html">Analisis Data Menggunakan Decision Tree</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisis Data Menggunakan Random Forest</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRandom_forest.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Random_forest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analisis Data Menggunakan Random Forest</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-data">Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partisi">Partisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-knime">Implementasi KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-workflow-knime">Alur Workflow KNIME</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-klasifikasi">Random Forest — Klasifikasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-random-forest">Apa itu Random Forest?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-node-random-forest-learner-classification">Konfigurasi Node Random Forest Learner (Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-confusion-matrix-data-training">Hasil Confusion Matrix — Data Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-confusion-matrix-data-testing">Hasil Confusion Matrix — Data Testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-regresi">Random Forest — Regresi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-klasifikasi-dan-regresi">Perbedaan Klasifikasi dan Regresi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-node-random-forest-learner-regression">Konfigurasi Node Random Forest Learner (Regression)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-evaluasi-regresi-numeric-scorer">Hasil Evaluasi Regresi — Numeric Scorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-data-menggunakan-random-forest">
+<h1>Analisis Data Menggunakan Random Forest<a class="headerlink" href="#analisis-data-menggunakan-random-forest" title="Link to this heading">#</a></h1>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan adalah <strong>Dataset Pelanggan</strong> yang berisi informasi profil pelanggan untuk diklasifikasikan ke dalam kategori loyalitas dan diprediksi jumlah belanjaannya.</p>
+<p>Dataset ini memiliki <strong>150 baris data</strong>, <strong>5 fitur</strong> (seluruhnya numerik), dan <strong>1 label</strong> bernama <code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code> yang memiliki 4 nilai kelas.</p>
+<p>Berikut seluruh fitur beserta keterangannya:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No</p></th>
+<th class="head"><p>Nama Fitur</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>umur</p></td>
+<td><p>Numerik</p></td>
+<td><p>Usia pelanggan (tahun)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>penghasilan</p></td>
+<td><p>Numerik</p></td>
+<td><p>Penghasilan bulanan pelanggan (dalam ribuan)</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>skor_kepuasan</p></td>
+<td><p>Numerik</p></td>
+<td><p>Skor kepuasan pelanggan (0–100)</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>frekuensi_belanja</p></td>
+<td><p>Numerik</p></td>
+<td><p>Jumlah transaksi belanja per bulan</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>jumlah_belanja</p></td>
+<td><p>Numerik</p></td>
+<td><p>Total jumlah belanja per bulan</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>kategori_pelanggan</p></td>
+<td><p><strong>Label</strong></p></td>
+<td><p>Kategori loyalitas pelanggan</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kelas pada kolom <code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code> terdiri dari 4 nilai:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kategori</p></th>
+<th class="head"><p>Jumlah Data</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>basic</p></td>
+<td><p>40</p></td>
+<td><p>Pelanggan dengan profil dasar</p></td>
+</tr>
+<tr class="row-odd"><td><p>silver</p></td>
+<td><p>40</p></td>
+<td><p>Pelanggan tingkat menengah</p></td>
+</tr>
+<tr class="row-even"><td><p>gold</p></td>
+<td><p>40</p></td>
+<td><p>Pelanggan tingkat atas</p></td>
+</tr>
+<tr class="row-odd"><td><p>platinum</p></td>
+<td><p>30</p></td>
+<td><p>Pelanggan dengan loyalitas tinggi</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Berikut ringkasan statistik dataset:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Rata-rata</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>umur</p></td>
+<td><p>21</p></td>
+<td><p>60</p></td>
+<td><p>39.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>penghasilan</p></td>
+<td><p>3.200</p></td>
+<td><p>12.740</p></td>
+<td><p>7.633</p></td>
+</tr>
+<tr class="row-even"><td><p>skor_kepuasan</p></td>
+<td><p>70</p></td>
+<td><p>100</p></td>
+<td><p>82.87</p></td>
+</tr>
+<tr class="row-odd"><td><p>frekuensi_belanja</p></td>
+<td><p>5</p></td>
+<td><p>44</p></td>
+<td><p>23.5</p></td>
+</tr>
+<tr class="row-even"><td><p>jumlah_belanja</p></td>
+<td><p>210</p></td>
+<td><p>1.124</p></td>
+<td><p>648.07</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="transformasi-data">
+<h2>Transformasi Data<a class="headerlink" href="#transformasi-data" title="Link to this heading">#</a></h2>
+<p>Dataset ini seluruhnya bertipe <strong>numerik</strong> sehingga tidak memerlukan proses encoding kategorikal. Namun, karena fitur memiliki skala yang berbeda-beda (contoh: <code class="docutils literal notranslate"><span class="pre">penghasilan</span></code> bernilai ribuan, sementara <code class="docutils literal notranslate"><span class="pre">skor_kepuasan</span></code> hanya 0–100), proses <strong>normalisasi atau standarisasi</strong> dapat diterapkan jika diperlukan.</p>
+<p>Pada implementasi KNIME ini, data langsung diproses tanpa normalisasi karena node <strong>Random Forest Learner</strong> bersifat <strong>tree-based</strong> yang tidak sensitif terhadap perbedaan skala antar fitur.</p>
+</section>
+<hr class="docutils" />
+<section id="partisi">
+<h2>Partisi<a class="headerlink" href="#partisi" title="Link to this heading">#</a></h2>
+<p>Sebelum dilakukan proses pelatihan model, data dibagi menjadi <strong>data training</strong> dan <strong>data testing</strong> menggunakan node <strong>Table Partitioner</strong> di KNIME.</p>
+<p>Pengaturan yang digunakan pada node <strong>Table Partitioner</strong> adalah sebagai berikut:</p>
+<ul class="simple">
+<li><p><strong>First partition type</strong>: Relative (%)</p></li>
+<li><p><strong>Relative size</strong>: 80% → sebagai <strong>data training</strong></p></li>
+<li><p><strong>Sampling strategy</strong>: Stratified (menjaga proporsi kelas tetap seimbang)</p></li>
+<li><p><strong>Group column</strong>: <code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code> (kolom target yang dijadikan acuan stratifikasi)</p></li>
+<li><p><strong>Fixed random seed</strong>: Tidak diaktifkan</p></li>
+</ul>
+<blockquote>
+<div><p>Dengan strategi <strong>Stratified</strong>, KNIME memastikan bahwa proporsi kelas <code class="docutils literal notranslate"><span class="pre">basic</span></code>, <code class="docutils literal notranslate"><span class="pre">silver</span></code>, <code class="docutils literal notranslate"><span class="pre">gold</span></code>, dan <code class="docutils literal notranslate"><span class="pre">platinum</span></code> pada data training maupun data testing tetap seimbang sesuai distribusi aslinya.</p>
+</div></blockquote>
+<p>Hasil pembagian data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Partisi</p></th>
+<th class="head"><p>Persentase</p></th>
+<th class="head"><p>Jumlah Data (estimasi)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Training</p></td>
+<td><p>80%</p></td>
+<td><p>120 data</p></td>
+</tr>
+<tr class="row-odd"><td><p>Testing</p></td>
+<td><p>20%</p></td>
+<td><p>30 data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="implementasi-knime">
+<h2>Implementasi KNIME<a class="headerlink" href="#implementasi-knime" title="Link to this heading">#</a></h2>
+<section id="alur-workflow-knime">
+<h3>Alur Workflow KNIME<a class="headerlink" href="#alur-workflow-knime" title="Link to this heading">#</a></h3>
+<p>Berikut urutan node yang digunakan dalam workflow KNIME untuk implementasi Random Forest:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>File Reader
+      ↓
+Table Partitioner  →  [Training Data 80%]  →  Random Forest Learner (Classification)  →  Random Forest Predictor  →  Scorer (deprecated)
+                   →  [Testing Data 20%]   →  ↗                                        ↗
+                                           →  Random Forest Learner (Regression)    →  Random Forest Predictor (Regression)  →  Column Filter  →  Line Plot (legacy)
+                                                                                                                              →  Numeric Scorer (deprecated)
+</pre></div>
+</div>
+<p>Penjelasan masing-masing node:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Node</p></th>
+<th class="head"><p>Fungsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>File Reader</p></td>
+<td><p>Membaca dataset dari file <code class="docutils literal notranslate"><span class="pre">.csv</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Table Partitioner</p></td>
+<td><p>Membagi data menjadi data training (80%) dan data testing (20%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Random Forest Learner (Classification)</p></td>
+<td><p>Melatih model Random Forest untuk klasifikasi <code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Random Forest Predictor (Classification)</p></td>
+<td><p>Memprediksi kategori pelanggan pada data testing</p></td>
+</tr>
+<tr class="row-even"><td><p>Scorer (deprecated)</p></td>
+<td><p>Mengevaluasi performa klasifikasi (confusion matrix &amp; akurasi)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Random Forest Learner (Regression)</p></td>
+<td><p>Melatih model Random Forest untuk regresi <code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Random Forest Predictor (Regression)</p></td>
+<td><p>Memprediksi nilai <code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code> pada data testing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Column Filter</p></td>
+<td><p>Memilih kolom yang relevan untuk ditampilkan pada visualisasi</p></td>
+</tr>
+<tr class="row-even"><td><p>Line Plot (legacy)</p></td>
+<td><p>Menampilkan grafik perbandingan nilai aktual vs hasil prediksi regresi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numeric Scorer (deprecated)</p></td>
+<td><p>Mengevaluasi performa regresi (R², MAE, MSE, RMSE)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="random-forest-klasifikasi">
+<h2>Random Forest — Klasifikasi<a class="headerlink" href="#random-forest-klasifikasi" title="Link to this heading">#</a></h2>
+<section id="apa-itu-random-forest">
+<h3>Apa itu Random Forest?<a class="headerlink" href="#apa-itu-random-forest" title="Link to this heading">#</a></h3>
+<p><strong>Random Forest</strong> adalah algoritma machine learning yang bekerja dengan membuat banyak <strong>Decision Tree</strong> secara acak, lalu menggabungkan hasilnya untuk mendapatkan prediksi yang lebih akurat dan stabil.</p>
+<blockquote>
+<div><p>Analoginya seperti <strong>voting</strong>: daripada bertanya kepada satu orang ahli, kita bertanya kepada 100 orang ahli yang berbeda, lalu mengambil jawaban yang paling banyak dipilih.</p>
+</div></blockquote>
+<p>Keunggulan Random Forest dibandingkan Decision Tree tunggal:</p>
+<ul class="simple">
+<li><p>Lebih tahan terhadap <strong>overfitting</strong></p></li>
+<li><p>Lebih <strong>akurat</strong> karena menggabungkan banyak model</p></li>
+<li><p>Dapat menangani dataset dengan banyak fitur</p></li>
+</ul>
+</section>
+<section id="konfigurasi-node-random-forest-learner-classification">
+<h3>Konfigurasi Node Random Forest Learner (Classification)<a class="headerlink" href="#konfigurasi-node-random-forest-learner-classification" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nilai</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Class column</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code></p></td>
+<td><p>Kolom target yang ingin diprediksi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number of models</p></td>
+<td><p>(default)</p></td>
+<td><p>Jumlah Decision Tree yang dibangun</p></td>
+</tr>
+<tr class="row-even"><td><p>Split criterion</p></td>
+<td><p>(default)</p></td>
+<td><p>Metode pemilihan fitur terbaik di setiap split</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sampling with replacement</p></td>
+<td><p>Aktif</p></td>
+<td><p>Setiap pohon dilatih dengan sampel acak (bagging)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hasil-confusion-matrix-data-training">
+<h3>Hasil Confusion Matrix — Data Training<a class="headerlink" href="#hasil-confusion-matrix-data-training" title="Link to this heading">#</a></h3>
+<p>Data training menghasilkan confusion matrix sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>basic</p></th>
+<th class="head"><p>silver</p></th>
+<th class="head"><p>gold</p></th>
+<th class="head"><p>platinum</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>basic</strong></p></td>
+<td><p>32</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>silver</strong></p></td>
+<td><p>0</p></td>
+<td><p>32</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>gold</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>32</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>platinum</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>24</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Seluruh data training diklasifikasikan dengan benar tanpa ada kesalahan prediksi.</p>
+</div></blockquote>
+<p><strong>Cara membaca confusion matrix:</strong></p>
+<ul class="simple">
+<li><p>Setiap <strong>baris</strong> mewakili kelas <strong>aktual</strong> (data asli)</p></li>
+<li><p>Setiap <strong>kolom</strong> mewakili kelas <strong>prediksi</strong> model</p></li>
+<li><p>Angka pada <strong>diagonal</strong> (kiri atas ke kanan bawah) = prediksi <strong>benar</strong></p></li>
+<li><p>Angka di <strong>luar diagonal</strong> = prediksi <strong>salah</strong></p></li>
+</ul>
+<p><strong>Perhitungan akurasi data training:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Total benar = 32 + 32 + 32 + 24 = 120
+Total data  = 120
+Akurasi     = 120 / 120 × 100% = 100%
+</pre></div>
+</div>
+</section>
+<section id="hasil-confusion-matrix-data-testing">
+<h3>Hasil Confusion Matrix — Data Testing<a class="headerlink" href="#hasil-confusion-matrix-data-testing" title="Link to this heading">#</a></h3>
+<p>Data testing menghasilkan confusion matrix sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>basic</p></th>
+<th class="head"><p>silver</p></th>
+<th class="head"><p>gold</p></th>
+<th class="head"><p>platinum</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>basic</strong></p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>silver</strong></p></td>
+<td><p>0</p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>gold</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>platinum</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Model berhasil memprediksi seluruh data testing dengan benar.</p>
+</div></blockquote>
+<p><strong>Perhitungan akurasi data testing:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Total benar = 8 + 8 + 8 + 6 = 30
+Total data  = 30
+Akurasi     = 30 / 30 × 100% = 100%
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="random-forest-regresi">
+<h2>Random Forest — Regresi<a class="headerlink" href="#random-forest-regresi" title="Link to this heading">#</a></h2>
+<section id="perbedaan-klasifikasi-dan-regresi">
+<h3>Perbedaan Klasifikasi dan Regresi<a class="headerlink" href="#perbedaan-klasifikasi-dan-regresi" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspek</p></th>
+<th class="head"><p>Klasifikasi</p></th>
+<th class="head"><p>Regresi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Kelas/kategori (basic, silver, …)</p></td>
+<td><p>Nilai numerik (jumlah belanja)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Target kolom</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kategori_pelanggan</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Evaluasi</p></td>
+<td><p>Akurasi, Confusion Matrix</p></td>
+<td><p>R², MAE, RMSE</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="konfigurasi-node-random-forest-learner-regression">
+<h3>Konfigurasi Node Random Forest Learner (Regression)<a class="headerlink" href="#konfigurasi-node-random-forest-learner-regression" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nilai</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Target column</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code></p></td>
+<td><p>Kolom yang ingin diprediksi nilainya</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hasil-evaluasi-regresi-numeric-scorer">
+<h3>Hasil Evaluasi Regresi — Numeric Scorer<a class="headerlink" href="#hasil-evaluasi-regresi-numeric-scorer" title="Link to this heading">#</a></h3>
+<p>Berikut hasil evaluasi model regresi Random Forest:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metrik</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R² (R-Squared)</p></td>
+<td><p>0.991</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mean Absolute Error (MAE)</p></td>
+<td><p>21.327</p></td>
+</tr>
+<tr class="row-even"><td><p>Mean Squared Error (MSE)</p></td>
+<td><p>707.678</p></td>
+</tr>
+<tr class="row-odd"><td><p>Root Mean Squared Error (RMSE)</p></td>
+<td><p>26.602</p></td>
+</tr>
+<tr class="row-even"><td><p>Mean Signed Error (MSE)</p></td>
+<td><p>-5.282</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Penjelasan masing-masing metrik:</strong></p>
+<ul class="simple">
+<li><p><strong>R² = 0.991</strong> → Model mampu menjelaskan <strong>99.1%</strong> variasi data aktual. Nilai mendekati 1 berarti model sangat baik.</p></li>
+<li><p><strong>MAE = 21.327</strong> → Rata-rata selisih absolut antara prediksi dan nilai aktual sebesar <strong>±21.327</strong>.</p></li>
+<li><p><strong>RMSE = 26.602</strong> → Akar dari rata-rata kuadrat error. Lebih sensitif terhadap error besar dibanding MAE.</p></li>
+<li><p><strong>Mean Signed Error = -5.282</strong> → Model cenderung sedikit <strong>memprediksi lebih rendah</strong> dari nilai aktual (underprediction).</p></li>
+</ul>
+<blockquote>
+<div><p>Nilai <strong>R² = 0.991</strong> menunjukkan bahwa model Random Forest Regression memiliki performa yang <strong>sangat baik</strong> dalam memprediksi jumlah belanja pelanggan.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Dari hasil implementasi Random Forest menggunakan KNIME pada dataset pelanggan, diperoleh kesimpulan sebagai berikut:</p>
+<p><strong>Klasifikasi:</strong></p>
+<ul class="simple">
+<li><p>Model Random Forest berhasil mengklasifikasikan kategori pelanggan (<code class="docutils literal notranslate"><span class="pre">basic</span></code>, <code class="docutils literal notranslate"><span class="pre">silver</span></code>, <code class="docutils literal notranslate"><span class="pre">gold</span></code>, <code class="docutils literal notranslate"><span class="pre">platinum</span></code>) dengan <strong>akurasi 100%</strong> baik pada data training maupun data testing.</p></li>
+<li><p>Tidak ada satupun data yang salah diklasifikasikan, yang menunjukkan bahwa fitur-fitur dalam dataset (umur, penghasilan, skor kepuasan, frekuensi belanja) memiliki <strong>pola yang sangat jelas</strong> untuk membedakan tiap kategori pelanggan.</p></li>
+</ul>
+<p><strong>Regresi:</strong></p>
+<ul class="simple">
+<li><p>Model Random Forest Regression berhasil memprediksi <code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code> dengan nilai <strong>R² = 0.991</strong>, yang menandakan prediksi sangat mendekati nilai aktual.</p></li>
+<li><p>Nilai RMSE sebesar <strong>26.602</strong> tergolong kecil mengingat rentang nilai <code class="docutils literal notranslate"><span class="pre">jumlah_belanja</span></code> berkisar antara 210 hingga 1.124.</p></li>
+</ul>
+<p><strong>Perbandingan dengan Decision Tree:</strong></p>
+<ul class="simple">
+<li><p>Random Forest menghasilkan performa yang lebih stabil karena menggabungkan banyak pohon keputusan, sehingga lebih tahan terhadap noise dan overfitting dibandingkan Decision Tree tunggal.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Decision_tree.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Analisis Data Menggunakan Decision Tree</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-data">Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partisi">Partisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-knime">Implementasi KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-workflow-knime">Alur Workflow KNIME</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-klasifikasi">Random Forest — Klasifikasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-random-forest">Apa itu Random Forest?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-node-random-forest-learner-classification">Konfigurasi Node Random Forest Learner (Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-confusion-matrix-data-training">Hasil Confusion Matrix — Data Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-confusion-matrix-data-testing">Hasil Confusion Matrix — Data Testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-regresi">Random Forest — Regresi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-klasifikasi-dan-regresi">Perbedaan Klasifikasi dan Regresi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-node-random-forest-learner-regression">Konfigurasi Node Random Forest Learner (Regression)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-evaluasi-regresi-numeric-scorer">Hasil Evaluasi Regresi — Numeric Scorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

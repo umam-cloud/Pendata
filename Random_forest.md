@@ -62,6 +62,8 @@ Pengaturan yang digunakan pada node **Table Partitioner** adalah sebagai berikut
 
 Hasil pembagian data:
 
+![Hasil pembagian Data](img/random-forest/partisi.png)
+
 | Partisi       | Persentase | Jumlah Data (estimasi) |
 |---------------|------------|------------------------|
 | Training      | 80%        | 120 data               |
@@ -83,6 +85,8 @@ Table Partitioner  →  [Training Data 80%]  →  Random Forest Learner (Classif
                                            →  Random Forest Learner (Regression)    →  Random Forest Predictor (Regression)  →  Column Filter  →  Line Plot (legacy)
                                                                                                                               →  Numeric Scorer (deprecated)
 ```
+
+![workflow knime](img/random-forest/workflow.png)
 
 Penjelasan masing-masing node:
 
@@ -127,6 +131,8 @@ Keunggulan Random Forest dibandingkan Decision Tree tunggal:
 
 Data training menghasilkan confusion matrix sebagai berikut:
 
+![Hasil Data Training](img/random-forest/data-training.png)
+
 |          | basic | silver | gold | platinum |
 |----------|-------|--------|------|----------|
 | **basic**    | 32    | 0      | 0    | 0        |
@@ -153,6 +159,8 @@ Akurasi     = 120 / 120 × 100% = 100%
 ### Hasil Confusion Matrix — Data Testing
 
 Data testing menghasilkan confusion matrix sebagai berikut:
+
+![Hasil Data testing](img/random-forest/data-testing.png)
 
 |          | basic | silver | gold | platinum |
 |----------|-------|--------|------|----------|
@@ -192,6 +200,8 @@ Akurasi     = 30 / 30 × 100% = 100%
 ### Hasil Evaluasi Regresi — Numeric Scorer
 
 Berikut hasil evaluasi model regresi Random Forest:
+
+![Hasil evaluasi](img/random-forest/evaluasi-regresi.png)
 
 | Metrik                    | Nilai     |
 |---------------------------|-----------|

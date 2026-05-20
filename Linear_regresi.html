@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Perhitungan WKNN &#8212; My sample book</title>
+    <title>Analisa Data Menggunakan Regresi Linier (A) &#8212; My sample book</title>
   
   
   
@@ -59,11 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Wknn_Missing_Value';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Linear_regresi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="UTS (Ujian Tengah Semester)" href="UTS.html" />
-    <link rel="prev" title="Weighted K-Nearest Neighbor(WKNN)" href="wknn.html" />
+    <link rel="prev" title="Analisis Data Menggunakan Random Forest" href="Random_forest.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Distance%20Student%20Data.html">Distance in Student Data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Preprocessing.html">Preprocessing Data</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Preprocessing.html">Preprocessing Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Data%20normalization.html">Normalisasi Data</a></li>
 
 
@@ -228,8 +227,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="wknn.html">Weighted K-Nearest Neighbor(WKNN)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Perhitungan WKNN</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="wknn.html">Weighted K-Nearest Neighbor(WKNN)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Wknn_Missing_Value.html">Perhitungan WKNN</a></li>
 
 
 
@@ -248,7 +247,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Naive_Bayes.html">Analisis Data Menggunakan Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Decision_tree.html">Analisis Data Menggunakan Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Random_forest.html">Analisis Data Menggunakan Random Forest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Linear_regresi.html">Analisa Data Menggunakan Regresi Linier (A)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisa Data Menggunakan Regresi Linier (A)</a></li>
 </ul>
 
     </div>
@@ -320,7 +319,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWknn_Missing_Value.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLinear_regresi.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +349,7 @@
       
       
       
-      <li><a href="_sources/Wknn_Missing_Value.md" target="_blank"
+      <li><a href="_sources/Linear_regresi.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -434,7 +433,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Perhitungan WKNN</h1>
+    <h1>Analisa Data Menggunakan Regresi Linier (A)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -444,28 +443,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Perhitungan WKNN</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-data">Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-analitik-manual">Perhitungan Analitik (Manual)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-scikit-learn">Implementasi Python (Scikit-Learn)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-kode-python">Alur Kode Python</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-min-max">2. Normalisasi Data (Min-Max)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-jarak-euclidean-distance">3. Perhitungan Jarak (Euclidean Distance)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-1">Data 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-2">Data 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-3">Data 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-4">Data 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-5">Data 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-6">Data 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-geogebra">Implementasi Geogebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-jarak">4. Tabel Jarak</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-k">5. Menentukan Nilai K</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-bobot-wknn">6. Perhitungan Bobot WKNN</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#voting-berbobot">7. Voting Berbobot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi">8. Hasil Prediksi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">9. Kesimpulan</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -476,354 +463,149 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="perhitungan-wknn">
-<h1>Perhitungan WKNN<a class="headerlink" href="#perhitungan-wknn" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisa-data-menggunakan-regresi-linier-a">
+<h1>Analisa Data Menggunakan Regresi Linier (A)<a class="headerlink" href="#analisa-data-menggunakan-regresi-linier-a" title="Link to this heading">#</a></h1>
 <section id="dataset">
-<h2>1. Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
-<p>Data yang digunakan terdiri dari atribut:</p>
-<ul class="simple">
-<li><p><strong>IPK</strong></p></li>
-<li><p><strong>PO</strong></p></li>
-<li><p><strong>JML (kelas)</strong></p></li>
-</ul>
-<p>Data ke-7 merupakan <strong>data uji</strong> yang ingin diprediksi nilai <strong>JML</strong>.</p>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan adalah data titik koordinat dua dimensi yang terdiri dari variabel independen (X) dan variabel dependen (Y).</p>
+<p>Dataset ini memiliki <strong>7 baris data</strong> dan <strong>2 fitur utama</strong> (X dan Y).</p>
+<p>Berikut seluruh data titik koordinat beserta keterangannya:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>No</p></th>
-<th class="head"><p>IPK</p></th>
-<th class="head"><p>PO</p></th>
-<th class="head"><p>JML</p></th>
+<tr class="row-odd"><th class="head"><p>Titik</p></th>
+<th class="head"><p>X (Variabel Independen)</p></th>
+<th class="head"><p>Y (Variabel Dependen)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-even"><td><p>A</p></td>
 <td><p>2</p></td>
-<td><p>2000000</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>3</p></td>
-<td><p>3000000</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
+<tr class="row-odd"><td><p>B</p></td>
 <td><p>4</p></td>
-<td><p>2000000</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>2</p></td>
-<td><p>2000000</p></td>
 <td><p>3</p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>3</p></td>
-<td><p>3000000</p></td>
-<td><p>2</p></td>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>6</p></td>
+<tr class="row-odd"><td><p>D</p></td>
+<td><p>3</p></td>
 <td><p>4</p></td>
-<td><p>4000000</p></td>
+</tr>
+<tr class="row-even"><td><p>E</p></td>
+<td><p>3</p></td>
 <td><p>3</p></td>
 </tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>2</p></td>
-<td><p>3000000</p></td>
-<td><p>?</p></td>
+<tr class="row-odd"><td><p>F</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>G</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</section>
+<p>Berikut ringkasan statistik dari total (<em>sum</em>) dataset untuk keperluan perhitungan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Sigma X\)</span> = 26</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma Y\)</span> = 28</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma X^2\)</span> = 104</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma XY\)</span> = 112</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = 7</p></li>
+</ul>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="normalisasi-data-min-max">
-<h1>2. Normalisasi Data (Min-Max)<a class="headerlink" href="#normalisasi-data-min-max" title="Link to this heading">#</a></h1>
-<p>Normalisasi dilakukan menggunakan metode <strong>Min-Max Normalization</strong> dengan rumus:</p>
-<p><span class="math notranslate nohighlight">\(
-X' = \frac{X - X_{min}}{X_{max} - X_{min}}
-\)</span></p>
-<p>Hasil normalisasi:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>No</p></th>
-<th class="head"><p>IPK</p></th>
-<th class="head"><p>PO</p></th>
-<th class="head"><p>JML</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>0.5</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>0.5</p></td>
-<td><p>0.5</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>0</p></td>
-<td><p>0.5</p></td>
-<td><p>?</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Data ke-7 adalah <strong>data uji</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">IPK</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">PO</span>  <span class="o">=</span> <span class="mf">0.5</span>
+<section id="transformasi-data">
+<h2>Transformasi Data<a class="headerlink" href="#transformasi-data" title="Link to this heading">#</a></h2>
+<p>Dataset ini seluruhnya bertipe <strong>numerik</strong> sederhana sehingga tidak memerlukan proses <em>encoding</em> kategorikal, normalisasi, atau standarisasi yang kompleks. Transformasi yang dilakukan hanyalah pemisahan data menjadi dua bagian utama:</p>
+<ul class="simple">
+<li><p><strong>Variabel Independen (X)</strong>: Titik pada sumbu X yang akan digunakan sebagai fitur prediktor.</p></li>
+<li><p><strong>Variabel Dependen (Y)</strong>: Titik pada sumbu Y yang akan digunakan sebagai target atau label.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="perhitungan-analitik-manual">
+<h2>Perhitungan Analitik (Manual)<a class="headerlink" href="#perhitungan-analitik-manual" title="Link to this heading">#</a></h2>
+<p>Untuk menghitung koefisien regresi secara analitik, kita menggunakan metode <em>Ordinary Least Squares</em> (OLS). Berdasarkan rumus regresi linier sederhana, kita mencari nilai koefisien arah/slope (<span class="math notranslate nohighlight">\(b\)</span>) dan konstanta/intercept (<span class="math notranslate nohighlight">\(a\)</span>).</p>
+<p><strong>1. Menghitung Nilai b (Koefisien Regresi)</strong></p>
+<div class="math notranslate nohighlight">
+\[b = \frac{n(\sum XY) - (\sum X)(\sum Y)}{n(\sum X^2) - (\sum X)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{7(112) - (26)(28)}{7(104) - (26)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{784 - 728}{728 - 676}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{56}{52}\]</div>
+<div class="math notranslate nohighlight">
+\[b \approx 1.077\]</div>
+<p><strong>2. Menghitung Nilai a (Intercept)</strong></p>
+<div class="math notranslate nohighlight">
+\[a = \frac{\sum Y - b(\sum X)}{n}\]</div>
+<div class="math notranslate nohighlight">
+\[a = \frac{28 - (1.077)(26)}{7}\]</div>
+<div class="math notranslate nohighlight">
+\[a = \frac{28 - 28}{7}\]</div>
+<div class="math notranslate nohighlight">
+\[a = 0\]</div>
+<p><strong>Persamaan Regresi Linier:</strong>
+Berdasarkan perhitungan analitik, didapatkan persamaan garis regresi:
+<strong><span class="math notranslate nohighlight">\(Y = 1.077X\)</span></strong></p>
+</section>
+<hr class="docutils" />
+<section id="implementasi-python-scikit-learn">
+<h2>Implementasi Python (Scikit-Learn)<a class="headerlink" href="#implementasi-python-scikit-learn" title="Link to this heading">#</a></h2>
+<p>Selain perhitungan manual, analisis juga dilakukan dengan membuat program Python menggunakan <em>library</em> <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> untuk membuktikan hasil analitik secara komputasi. Model yang digunakan adalah <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>.</p>
+<section id="alur-kode-python">
+<h3>Alur Kode Python<a class="headerlink" href="#alur-kode-python" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
 
+<span class="c1"># 1. Menyiapkan Data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Memisahkan fitur dan target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">]]</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span>
+
+<span class="c1"># 2. Inisialisasi dan Pelatihan Model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># 3. Ekstraksi Nilai Koefisien dan Intercept</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">intercept_</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Menampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nilai a (Intercept) : </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nilai b (Koefisien) : </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Persamaan Regresi   : Y = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">X&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perhitungan-jarak-euclidean-distance">
-<h1>3. Perhitungan Jarak (Euclidean Distance)<a class="headerlink" href="#perhitungan-jarak-euclidean-distance" title="Link to this heading">#</a></h1>
-<p>Rumus Euclidean Distance:</p>
-<p><span class="math notranslate nohighlight">\(
-d(x,y) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}
-\)</span></p>
-<p>Perhitungan jarak antara <strong>data uji</strong> dengan setiap data latih:</p>
-<section id="data-1">
-<h2>Data 1<a class="headerlink" href="#data-1" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-0)^2 + (0.5-0)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{0 + 0.25}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 0.5
-\)</span></p>
-<hr class="docutils" />
-</section>
-<section id="data-2">
-<h2>Data 2<a class="headerlink" href="#data-2" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-0.5)^2 + (0.5-0.5)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{0.25 + 0}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 0.5
-\)</span></p>
-<hr class="docutils" />
-</section>
-<section id="data-3">
-<h2>Data 3<a class="headerlink" href="#data-3" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-1)^2 + (0.5-0)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{1 + 0.25}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 1.118
-\)</span></p>
-<hr class="docutils" />
-</section>
-<section id="data-4">
-<h2>Data 4<a class="headerlink" href="#data-4" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-0)^2 + (0.5-0)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 0.5
-\)</span></p>
-<hr class="docutils" />
-</section>
-<section id="data-5">
-<h2>Data 5<a class="headerlink" href="#data-5" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-0.5)^2 + (0.5-0.5)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 0.5
-\)</span></p>
-<hr class="docutils" />
-</section>
-<section id="data-6">
-<h2>Data 6<a class="headerlink" href="#data-6" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{(0-1)^2 + (0.5-1)^2}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = \sqrt{1 + 0.25}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-d = 1.118
-\)</span></p>
+<p><img alt="linear regresi" src="_images/hasil-implementasi-py.png" /></p>
 </section>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="tabel-jarak">
-<h1>4. Tabel Jarak<a class="headerlink" href="#tabel-jarak" title="Link to this heading">#</a></h1>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Data</p></th>
-<th class="head"><p>Distance</p></th>
-<th class="head"><p>JML</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>0.5</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>1.118</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>0.5</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>1.118</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="implementasi-geogebra">
+<h2>Implementasi Geogebra<a class="headerlink" href="#implementasi-geogebra" title="Link to this heading">#</a></h2>
+<p>hasil dari analisis menggunakan library python jika di running di app Geogebra akan menghasilkan plot titik koordinat seperti:</p>
+<p><img alt="Geogebra linear regresi" src="_images/linear-regresi-geogebra.png" /></p>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="menentukan-nilai-k">
-<h1>5. Menentukan Nilai K<a class="headerlink" href="#menentukan-nilai-k" title="Link to this heading">#</a></h1>
-<p>Misalkan digunakan <strong>K = 3</strong> tetangga terdekat.</p>
-<p>Data dengan jarak terkecil:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Data</p></th>
-<th class="head"><p>Distance</p></th>
-<th class="head"><p>JML</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>0.5</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Berdasarkan analisis data menggunakan Regresi Linier terhadap 7 titik koordinat (A-G), dapat ditarik kesimpulan sebagai berikut:</p>
+<ol class="arabic simple">
+<li><p><strong>Kesesuaian Metode:</strong> Terdapat kecocokan 100% antara perhitungan koefisien regresi secara analitik (manual) dengan komputasi menggunakan program Python (<em>library</em> <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>). Keduanya menghasilkan nilai koefisien arah/slope (<span class="math notranslate nohighlight">\(b\)</span>) sebesar <strong>1.077</strong> dan nilai <em>intercept</em> (<span class="math notranslate nohighlight">\(a\)</span>) sebesar <strong>0</strong>.</p></li>
+<li><p><strong>Persamaan Regresi:</strong> Model matematis linier terbaik yang merepresentasikan hubungan antara variabel independen (X) dan dependen (Y) pada dataset ini adalah <strong><span class="math notranslate nohighlight">\(Y = 1.077X\)</span></strong>.</p></li>
+<li><p><strong>Pembuktian Visual:</strong> Visualisasi model prediksi melalui perangkat lunak GeoGebra secara visual membuktikan bahwa garis <span class="math notranslate nohighlight">\(Y = 1.077X\)</span> ditarik membelah sebaran titik-titik data secara optimal dan proporsional. Hal ini sejalan dengan prinsip metode <em>Ordinary Least Squares</em> (OLS), yaitu meminimalkan jarak kesalahan atau <em>error/residual</em> antara garis prediksi dengan titik koordinat aktualnya.</p></li>
+</ol>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perhitungan-bobot-wknn">
-<h1>6. Perhitungan Bobot WKNN<a class="headerlink" href="#perhitungan-bobot-wknn" title="Link to this heading">#</a></h1>
-<p>Rumus bobot:</p>
-<p><span class="math notranslate nohighlight">\(
-w_i = \frac{1}{d_i}
-\)</span></p>
-<p>Karena semua jarak = <strong>0.5</strong></p>
-<p><span class="math notranslate nohighlight">\(
-w = \frac{1}{0.5} = 2
-\)</span></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Data</p></th>
-<th class="head"><p>JML</p></th>
-<th class="head"><p>Bobot</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>1</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>1</p></td>
-<td><p>2</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="voting-berbobot">
-<h1>7. Voting Berbobot<a class="headerlink" href="#voting-berbobot" title="Link to this heading">#</a></h1>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Kelas</p></th>
-<th class="head"><p>Perhitungan</p></th>
-<th class="head"><p>Total Bobot</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>2 × 1</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>2 + 2</p></td>
-<td><p>4</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="hasil-prediksi">
-<h1>8. Hasil Prediksi<a class="headerlink" href="#hasil-prediksi" title="Link to this heading">#</a></h1>
-<p>Karena <strong>kelas 1 memiliki bobot terbesar</strong>, maka hasil prediksi untuk <strong>data ke-7</strong> adalah:</p>
-<p><span class="math notranslate nohighlight">\(
-JML = 1
-\)</span></p>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
-<h1>9. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
-<p>Berdasarkan perhitungan menggunakan metode <strong>Weighted K-Nearest Neighbor (WKNN)</strong> dengan <strong>K = 3</strong>, diperoleh bahwa data ke-7 yang memiliki nilai:</p>
-<ul class="simple">
-<li><p><strong>IPK = 2</strong></p></li>
-<li><p><strong>PO = 3000000</strong></p></li>
-</ul>
-<p>diprediksi memiliki nilai:</p>
-<p><strong>JML = 1</strong></p>
-<p>Metode WKNN memberikan bobot yang lebih besar pada data yang memiliki jarak lebih dekat terhadap data uji sehingga hasil klasifikasi menjadi lebih akurat.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -857,22 +639,13 @@ JML = 1
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="wknn.html"
+       href="Random_forest.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Weighted K-Nearest Neighbor(WKNN)</p>
+        <p class="prev-next-title">Analisis Data Menggunakan Random Forest</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="UTS.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">UTS (Ujian Tengah Semester)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -890,28 +663,16 @@ JML = 1
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Perhitungan WKNN</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-data">Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-analitik-manual">Perhitungan Analitik (Manual)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-scikit-learn">Implementasi Python (Scikit-Learn)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-kode-python">Alur Kode Python</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-min-max">2. Normalisasi Data (Min-Max)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-jarak-euclidean-distance">3. Perhitungan Jarak (Euclidean Distance)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-1">Data 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-2">Data 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-3">Data 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-4">Data 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-5">Data 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-6">Data 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-geogebra">Implementasi Geogebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabel-jarak">4. Tabel Jarak</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-k">5. Menentukan Nilai K</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-bobot-wknn">6. Perhitungan Bobot WKNN</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#voting-berbobot">7. Voting Berbobot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi">8. Hasil Prediksi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">9. Kesimpulan</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

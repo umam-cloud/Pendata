@@ -779,6 +779,7 @@ Jumlah Outlier (IQR): 31
 
 </pre></div>
 </div>
+<p><img alt="Hasil outlier" src="_images/outlier.png" /></p>
 <p>Setelah itu, kita akan menghapus data outlier. Karena data ini merupakan data Time Series, maka data outlier yang dihapus akan diisi kembali menggunakan Interpolasi Linear.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tandai outlier menjadi NaN</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">))</span>
@@ -820,6 +821,7 @@ Jumlah missing setelah interpolasi: 0
 
 </pre></div>
 </div>
+<p><img alt="Hasil outlier" src="_images/after-outlier.png" /></p>
 </section>
 </section>
 </section>

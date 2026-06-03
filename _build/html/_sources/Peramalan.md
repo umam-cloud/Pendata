@@ -353,6 +353,8 @@ plt.show()
 
 ```
 
+![Hasil outlier](img/peramalan/outlier.png)
+
 Setelah itu, kita akan menghapus data outlier. Karena data ini merupakan data Time Series, maka data outlier yang dihapus akan diisi kembali menggunakan Interpolasi Linear.
 
 ```python
@@ -399,3 +401,5 @@ plt.tight_layout()
 plt.show()
 
 ```
+
+![Hasil outlier](img/peramalan/after-outlier.png)

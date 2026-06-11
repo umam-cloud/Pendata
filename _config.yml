@@ -9,6 +9,7 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  hide_input: true
   
 parse:
   myst_enable_extensions:
@@ -43,5 +44,3 @@ html:
   use_issues_button: true
   use_repository_button: true
 
-execute:
-  hide_input: true

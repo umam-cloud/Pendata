@@ -36,3 +36,4 @@ chapters:
   - file: Random_forest
   - file: Linear_regresi
   - file: Peramalan
+  - file: Skforecast_Prediksi_Permintaan_Listrik_dan_Analisis_Explainability
